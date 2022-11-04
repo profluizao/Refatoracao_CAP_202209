@@ -42,7 +42,7 @@ namespace Atacado.Repositorio.Geral
 
         public override Cliente Delete(Cliente instancia)
         {
-            return this.Delete(instancia.Codigo);
+            return this.Delete(instancia.Codigo);   
         }
 
         public override Cliente Read(int chave)

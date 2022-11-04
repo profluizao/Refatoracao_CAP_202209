@@ -48,22 +48,42 @@ namespace Atacado.Repositorio.Geral
 
         public override InstituicaoBancaria Read(int chave)
         {
-            return this.contexto.InstituicaoBancarias.
+            return this.contexto.InstituicaoBancarias.SingleOrDefault(ins => ins.InstituicaoBancariaId == chave);
         }
 
         public override IQueryable<InstituicaoBancaria> Read(Expression<Func<InstituicaoBancaria, bool>> predicate = null)
         {
-            throw new NotImplementedException();
+            if(predicate == null)
+            {
+                return this.contexto.InstituicaoBancarias.AsQueryable();
+            }
+            else
+            {
+                return this.contexto.InstituicaoBancarias.Where(predicate).AsQueryable();
+            }
         }
 
         public override List<InstituicaoBancaria> Read()
         {
-            throw new NotImplementedException();
+            return this.contexto.InstituicaoBancarias.ToList();
         }
 
         public override InstituicaoBancaria Update(InstituicaoBancaria instancia)
         {
-            throw new NotImplementedException();
+            InstituicaoBancaria atu = this.Read(instancia.InstituicaoBancariaId);
+            if(atu == null)
+            {
+                return null;
+            }
+            else
+            {
+                atu.Descricao = instancia.Descricao;
+                atu.SiteWww = instancia.SiteWww;
+                atu.DataInsert = instancia.DataInsert;
+                atu.Ativo = instancia.Ativo;
+                this.contexto.SaveChanges();
+                return atu;
+            }
         }
     }
 }
