@@ -10,6 +10,7 @@ namespace Atacado.Poco.RH
 {
     public class FuncionarioPoco
     {
+        public long FuncionarioId { get; set; }
         public long Matricula { get; set; }
         public string Nome { get; set; } = null!;
         public string Sobrenome { get; set; } = null!;
