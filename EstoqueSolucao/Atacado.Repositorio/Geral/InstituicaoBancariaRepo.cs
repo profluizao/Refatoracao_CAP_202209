@@ -48,7 +48,7 @@ namespace Atacado.Repositorio.Geral
 
         public override InstituicaoBancaria Read(int chave)
         {
-            throw new NotImplementedException();
+            return this.contexto.InstituicaoBancarias.
         }
 
         public override IQueryable<InstituicaoBancaria> Read(Expression<Func<InstituicaoBancaria, bool>> predicate = null)
