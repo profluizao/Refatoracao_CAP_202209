@@ -10,4 +10,8 @@
     <ProjectReference Include="..\Atacado.DB.EF\Atacado.DB.EF.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="RH\" />
+  </ItemGroup>
+
 </Project>
