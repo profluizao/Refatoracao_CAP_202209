@@ -85,7 +85,6 @@ namespace Atacado.Repositorio.Geral
                 atu.Regiao = instancia.Regiao;
                 atu.Populacao = instancia.Populacao;
                 atu.Porte = instancia.Porte;
-                atu.DataInclusao = instancia.DataInclusao;
                 this.contexto.SaveChanges();
                 return atu;
             }

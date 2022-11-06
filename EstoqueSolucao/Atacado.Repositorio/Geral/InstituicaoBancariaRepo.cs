@@ -79,7 +79,6 @@ namespace Atacado.Repositorio.Geral
             {
                 atu.Descricao = instancia.Descricao;
                 atu.SiteWww = instancia.SiteWww;
-                atu.DataInsert = instancia.DataInsert;
                 atu.Ativo = instancia.Ativo;
                 this.contexto.SaveChanges();
                 return atu;

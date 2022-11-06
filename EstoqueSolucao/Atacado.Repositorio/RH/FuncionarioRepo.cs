@@ -78,7 +78,6 @@ namespace Atacado.Repositorio.RH
             }
             else
             {
-                atu.Matricula = instancia.Matricula;
                 atu.Nome = instancia.Nome;
                 atu.Sobrenome = instancia.Sobrenome;
                 atu.Sexo = instancia.Sexo;

@@ -85,7 +85,6 @@ namespace Atacado.Repositorio.Geral
                 atu.TipoPessoa = instancia.TipoPessoa;
                 atu.Endereco = instancia.Endereco;
                 atu.Ativo = instancia.Ativo;
-                atu.DataInclusao = instancia.DataInclusao;
                 atu.DataAlteracao = instancia.DataAlteracao;
                 atu.DataExclusao = instancia.DataExclusao;
                 this.contexto.SaveChanges();

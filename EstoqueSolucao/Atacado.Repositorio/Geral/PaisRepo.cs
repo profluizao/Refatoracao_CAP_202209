@@ -79,7 +79,6 @@ namespace Atacado.Repositorio.Geral
                 atu.Sigla = instancia.Sigla;
                 atu.CodigoIdioma = instancia.CodigoIdioma;
                 atu.Descricao = instancia.Descricao;
-                atu.DataInsert = instancia.DataInsert;
                 this.contexto.SaveChanges();
                 return atu;
             }
