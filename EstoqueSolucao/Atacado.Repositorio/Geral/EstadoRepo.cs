@@ -20,37 +20,67 @@ namespace Atacado.Repositorio.Geral
 
         public override Estado Create(Estado instancia)
         {
-            throw new NotImplementedException();
+            this.contexto.Estados.Add(instancia);
+            this.contexto.SaveChanges();
+            return instancia;
         }
 
         public override Estado Delete(int chave)
         {
-            throw new NotImplementedException();
+            Estado del = this.Read(chave);
+            if (del == null)
+            {
+                return null;
+            }
+            else
+            {
+                this.contexto.Estados.Remove(del);
+                this.contexto.SaveChanges();
+                return del;
+            }
         }
 
         public override Estado Delete(Estado instancia)
         {
-            throw new NotImplementedException();
+            return this.Delete(instancia.CodigoUf);
         }
 
         public override Estado Read(int chave)
         {
-            throw new NotImplementedException();
+            return this.contexto.Estados.SingleOrDefault(est => est.CodigoUf == chave);
         }
 
         public override IQueryable<Estado> Read(Expression<Func<Estado, bool>> predicate = null)
         {
-            throw new NotImplementedException();
+            if(predicate == null)
+            {
+                return this.contexto.Estados.AsQueryable();
+            }
+            else
+            {
+                return this.contexto.Estados.Where(predicate).AsQueryable();
+            }
         }
 
         public override List<Estado> Read()
         {
-            throw new NotImplementedException();
+            return this.contexto.Estados.ToList();
         }
 
         public override Estado Update(Estado instancia)
         {
-            throw new NotImplementedException();
+            Estado atu = this.Read(instancia.CodigoUf);
+            if(atu == null)
+            {
+                return null;
+            }
+            else
+            {
+                atu.SiglaUf = instancia.SiglaUf;
+                atu.DescricaoUf = instancia.DescricaoUf;
+                this.contexto.SaveChanges();
+                return atu;
+            }
         }
     }
 }
