@@ -4,12 +4,18 @@ using Atacado.Servico.RH;
 
 namespace AtacadoApi.Controllers
 {
-    [Route("api/RH/[controller]")]
+    /// <summary>
+    /// 
+    /// </summary>
+    [Route("api/rh/[controller]")]
     [ApiController]
     public class ProfissaoController : ControllerBase
     {
         private ProfissaoServico servico;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public ProfissaoController() : base()
         {
             this.servico = new ProfissaoServico();
@@ -51,7 +57,7 @@ namespace AtacadoApi.Controllers
         /// Realiza a alteração de um registro através de uma instância
         /// </summary>
         /// <param name="poco">instância passada como parâmetro</param>
-        /// <returns></returns
+        /// <returns></returns>
         [HttpPut]
         public ProfissaoPoco Put([FromBody] ProfissaoPoco poco)
         {

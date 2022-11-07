@@ -6,12 +6,18 @@ using Atacado.Poco.Geral;
 
 namespace AtacadoApi.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [Route("api/geral/[controller]")]
     [ApiController]
     public class InstituicaoBancariaController : ControllerBase
     {
         private InstituicaoBancariaServico servico;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public InstituicaoBancariaController() : base()
         {
             this.servico = new InstituicaoBancariaServico();
@@ -65,7 +71,7 @@ namespace AtacadoApi.Controllers
         /// </summary>
         /// <param name="chave">Chave primária da tabela</param>
         /// <returns></returns>
-        [HttpDelete]
+        [HttpDelete("{chave:int}")]
         public InstituicaoBancariaPoco DeleteById(int chave)
         {
             return this.servico.Delete(chave);

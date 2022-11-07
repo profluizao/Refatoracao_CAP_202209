@@ -14,6 +14,7 @@ namespace AtacadoApi.Controllers
     public class MunicipioController : ControllerBase
     {
         private MunicipioServico servico;
+
         /// <summary>
         /// 
         /// </summary>
@@ -21,6 +22,7 @@ namespace AtacadoApi.Controllers
         {
             this.servico = new MunicipioServico();
         }
+
         /// <summary>
         /// Lista todos os registros da tabela Municipio
         /// </summary>
@@ -30,6 +32,7 @@ namespace AtacadoApi.Controllers
         {
             return this.servico.Browse();
         }
+
         /// <summary>
         /// Lista o registro da tabela Municipio de acordo com a Id
         /// </summary>
@@ -40,6 +43,7 @@ namespace AtacadoApi.Controllers
         {
             return this.servico.Read(chave);
         }
+
         /// <summary>
         /// Cria um novo registro de Municipio
         /// </summary>
@@ -50,6 +54,7 @@ namespace AtacadoApi.Controllers
         {
             return this.servico.Add(poco);
         }
+        
         /// <summary>
         /// Altera um registro dentro de Municipio
         /// </summary>
@@ -60,6 +65,7 @@ namespace AtacadoApi.Controllers
         {
             return this.servico.Edit(poco);
         }
+        
         /// <summary>
         /// Realiza a exclusão de um registro de acordo com o Id
         /// </summary>
@@ -70,6 +76,7 @@ namespace AtacadoApi.Controllers
         {
             return this.servico.Delete(chave);
         }
+        
         /// <summary>
         /// Realiza a exclusão de um registro na tabela Municipio
         /// </summary>

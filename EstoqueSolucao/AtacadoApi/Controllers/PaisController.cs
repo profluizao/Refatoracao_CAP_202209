@@ -14,6 +14,7 @@ namespace AtacadoApi.Controllers
     public class PaisController : ControllerBase
     {
         private PaisServico servico;
+
         /// <summary>
         /// 
         /// </summary>
@@ -31,17 +32,18 @@ namespace AtacadoApi.Controllers
         {
             return this.servico.Browse();
         }
+        
         /// <summary>
         /// Lista o registro da tabela Pais de acordo com a Id
         /// </summary>
         /// <param name="chave"></param>
         /// <returns></returns>
         [HttpGet("{chave:int}")]
-
         public PaisPoco GetById(int chave)
         {
             return this.servico.Read(chave);
         }
+
         /// <summary>
         /// Cria um novo registro de Pais
         /// </summary>
@@ -52,6 +54,7 @@ namespace AtacadoApi.Controllers
         {
             return this.servico.Add(poco);
         }
+
         /// <summary>
         /// Altera um registro dentro de Pais
         /// </summary>
@@ -62,6 +65,7 @@ namespace AtacadoApi.Controllers
         {
             return this.servico.Edit(poco);
         }
+
         /// <summary>
         /// Realiza a exclusão de um registro de acordo com o Id
         /// </summary>
@@ -72,6 +76,7 @@ namespace AtacadoApi.Controllers
         { 
             return this.servico.Delete(chave);
         }
+
         /// <summary>
         /// Realiza a exclusão de um registro na tabela Pais
         /// </summary>

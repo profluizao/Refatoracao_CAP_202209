@@ -28,8 +28,8 @@ builder.Services.AddSwaggerGen(opcoes =>
             Url = new Uri("https://example.com/license")
         }
     });
-    var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-    opcoes.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
+    var filePath = Path.Combine(builder.Environment.ContentRootPath, @"Documents\AtacadoApi.xml");
+    opcoes.IncludeXmlComments(filePath);
 });
 var app = builder.Build();
 

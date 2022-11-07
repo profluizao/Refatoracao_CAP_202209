@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AtacadoApi.Controllers
 {
-    [Route("api/Geral/[controller]")]
+    [Route("api/geral/[controller]")]
     [ApiController]
     public class EstadoController : ControllerBase
     {

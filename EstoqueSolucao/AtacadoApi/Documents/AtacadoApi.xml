@@ -1,0 +1,572 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AtacadoApi</name>
+    </assembly>
+    <members>
+        <member name="T:AtacadoApi.Controllers.CategoriaController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.CategoriaController.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.CategoriaController.GetAll">
+            <summary>
+            Listar todos os registros da tabela Categoria.
+            </summary>
+            <returns>Uma lista com todos os registros.</returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.CategoriaController.GetById(System.Int32)">
+            <summary>
+            Lista o registro da tabela Categoria de acordo com a chave primária informada
+            </summary>
+            <param name="chave">chave primária da tabela</param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.CategoriaController.Post(Atacado.Poco.Estoque.CategoriaPoco)">
+            <summary>
+            Realiza a criação de um registro através de uma instância
+            </summary>
+            <param name="poco">instância passada como parâmetro</param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.CategoriaController.Put(Atacado.Poco.Estoque.CategoriaPoco)">
+            <summary>
+            Realiza a alteração de um registro através de uma instância
+            </summary>
+            <param name="poco">instância passada como parâmetro</param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.CategoriaController.DeleteById(System.Int32)">
+            <summary>
+            Realiza a exclusão de um registro de acordo com a chave primária informada.
+            </summary>
+            <param name="chave">chave primária da tabela</param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.CategoriaController.Delete(Atacado.Poco.Estoque.CategoriaPoco)">
+            <summary>
+            Realiza a exclusão de um registro através de uma instância
+            </summary>
+            <param name="poco">instância passada como parâmetro</param>
+            <returns></returns>
+        </member>
+        <member name="T:AtacadoApi.Controllers.ClienteController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.ClienteController.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.ClienteController.GetAll">
+            <summary>
+            Lista todos os clientes da tabela 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.ClienteController.GetById(System.Int32)">
+            <summary>
+            Lista o cliente de acordo com o codigo informado 
+            </summary>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.ClienteController.Post(Atacado.Poco.Geral.ClientePoco)">
+            <summary>
+            Realiza a criação de um registro através de uma instância
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.ClienteController.Put(Atacado.Poco.Geral.ClientePoco)">
+            <summary>
+            Realiza a alteração de um registro através de uma instância
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.ClienteController.DeleteById(System.Int32)">
+            <summary>
+            Realiza a exclusão de um registro de acordo com a chave primária informada
+            </summary>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.ClienteController.Delete(Atacado.Poco.Geral.ClientePoco)">
+            <summary>
+            Realiza a exclusão de um registro através de uma instância
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.DepartamentoController.GetAll">
+            <summary>
+            Listar todos os registros da tabela Instituicão Bancaria
+            </summary>
+            <returns>Uma lista com todos os registros</returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.DepartamentoController.GetById(System.Int32)">
+            <summary>
+            Lista o registro da tabela Instituição Bancária de acordo com a chave primária informada
+            </summary>
+            <param name="chave">Chave primária da tabela</param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.DepartamentoController.Post(Atacado.Poco.RH.DepartamentoPoco)">
+            <summary>
+            Realiza a criação de um registro através de uma instância
+            </summary>
+            <param name="poco">Instância passada como parâmetro</param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.DepartamentoController.Put(Atacado.Poco.RH.DepartamentoPoco)">
+            <summary>
+            Realiza a alteração de um registro através de uma instância
+            </summary>
+            <param name="poco">Instância passada como parâmetro</param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.DepartamentoController.DeleteById(System.Int32)">
+            <summary>
+            Realiza a exclusão de um registro de acordo com a chave primária informada
+            </summary>
+            <param name="chave">Chave primária da tabela</param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.DepartamentoController.Delete(Atacado.Poco.RH.DepartamentoPoco)">
+            <summary>
+            Realiza a exclusão de um registro através de uma instância
+            </summary>
+            <param name="poco">Instância passada como parâmetro</param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.EstadoController.GetAll">
+            <summary>
+            Listar todos os registros da tabela Categoria.
+            </summary>
+            <returns>Uma lista com todos os registros.</returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.EstadoController.GetById(System.Int32)">
+            <summary>
+            Lista o registro da tabela Categoria de acordo com a chave informada
+            </summary>
+            <param name="chave">chave primária da tabela</param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.EstadoController.Post(Atacado.Poco.Geral.EstadoPoco)">
+            <summary>
+            Realiza a criação de um registro através de uma instância
+            </summary>
+            <param name="poco">instância passada como parâmetro</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:AtacadoApi.Controllers.EstadoController.Put(Atacado.Poco.Geral.EstadoPoco)" -->
+        <member name="M:AtacadoApi.Controllers.EstadoController.DeleteById(System.Int32)">
+            <summary>
+            Realiza a exclusão de um registro de acordo com a chave informada
+            </summary>
+            <param name="chave">chave primária da tabela</param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.EstadoController.Delete(Atacado.Poco.Geral.EstadoPoco)">
+            <summary>
+            Realiza a exclusão de um registro através de uma instância
+            </summary>
+            <param name="poco">instância passada como parâmetro</param>
+            <returns></returns>
+        </member>
+        <member name="T:AtacadoApi.Controllers.FuncionarioController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.FuncionarioController.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.FuncionarioController.GetAll">
+            <summary>
+            Listar todos os registros da tabela Categoria.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.FuncionarioController.GetById(System.Int32)">
+            <summary>
+            Lista o registro da tabela Categoria de acordo com a chave primária informada
+            </summary>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.FuncionarioController.Post(Atacado.Poco.RH.FuncionarioPoco)">
+            <summary>
+            Realiza a criação de um registro através de uma instância
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.FuncionarioController.Put(Atacado.Poco.RH.FuncionarioPoco)">
+            <summary>
+            Realiza a alteração de um registro através de uma instância
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.FuncionarioController.DeleteById(System.Int32)">
+            <summary>
+            Realiza a exclusão de um registro de acordo com a chave primária informada
+            </summary>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.FuncionarioController.Delete(Atacado.Poco.RH.FuncionarioPoco)">
+            <summary>
+            Realiza a exclusão de um registro através de uma instância
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AtacadoApi.Controllers.InstituicaoBancariaController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.InstituicaoBancariaController.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.InstituicaoBancariaController.GetAll">
+            <summary>
+            Listar todos os registros da tabela Instituicão Bancaria
+            </summary>
+            <returns>Uma lista com todos os registros</returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.InstituicaoBancariaController.GetById(System.Int32)">
+            <summary>
+            Lista o registro da tabela Instituição Bancária de acordo com a chave primária informada
+            </summary>
+            <param name="chave">Chave primária da tabela</param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.InstituicaoBancariaController.Post(Atacado.Poco.Geral.InstituicaoBancariaPoco)">
+            <summary>
+            Realiza a criação de um registro através de uma instância
+            </summary>
+            <param name="poco">Instância passada como parâmetro</param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.InstituicaoBancariaController.Put(Atacado.Poco.Geral.InstituicaoBancariaPoco)">
+            <summary>
+            Realiza a alteração de um registro através de uma instância
+            </summary>
+            <param name="poco">Instância passada como parâmetro</param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.InstituicaoBancariaController.DeleteById(System.Int32)">
+            <summary>
+            Realiza a exclusão de um registro de acordo com a chave primária informada
+            </summary>
+            <param name="chave">Chave primária da tabela</param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.InstituicaoBancariaController.Delete(Atacado.Poco.Geral.InstituicaoBancariaPoco)">
+            <summary>
+            Realiza a exclusão de um registro através de uma instância
+            </summary>
+            <param name="poco">Instância passada como parâmetro</param>
+            <returns></returns>
+        </member>
+        <member name="T:AtacadoApi.Controllers.MunicipioController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.MunicipioController.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.MunicipioController.GetAll">
+            <summary>
+            Lista todos os registros da tabela Municipio
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.MunicipioController.GetById(System.Int32)">
+            <summary>
+            Lista o registro da tabela Municipio de acordo com a Id
+            </summary>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.MunicipioController.Post(Atacado.Poco.Geral.MunicipioPoco)">
+            <summary>
+            Cria um novo registro de Municipio
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.MunicipioController.Put(Atacado.Poco.Geral.MunicipioPoco)">
+            <summary>
+            Altera um registro dentro de Municipio
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.MunicipioController.DeleteById(System.Int32)">
+            <summary>
+            Realiza a exclusão de um registro de acordo com o Id
+            </summary>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.MunicipioController.Delete(Atacado.Poco.Geral.MunicipioPoco)">
+            <summary>
+            Realiza a exclusão de um registro na tabela Municipio
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AtacadoApi.Controllers.PaisController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.PaisController.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.PaisController.GetAll">
+            <summary>
+            Lista todos os registros da tabela Pais
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.PaisController.GetById(System.Int32)">
+            <summary>
+            Lista o registro da tabela Pais de acordo com a Id
+            </summary>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.PaisController.Post(Atacado.Poco.Geral.PaisPoco)">
+            <summary>
+            Cria um novo registro de Pais
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.PaisController.Put(Atacado.Poco.Geral.PaisPoco)">
+            <summary>
+            Altera um registro dentro de Pais
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.PaisController.DeleteById(System.Int32)">
+            <summary>
+            Realiza a exclusão de um registro de acordo com o Id
+            </summary>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.PaisController.Delete(Atacado.Poco.Geral.PaisPoco)">
+            <summary>
+            Realiza a exclusão de um registro na tabela Pais
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AtacadoApi.Controllers.ProdutoController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.ProdutoController.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.ProdutoController.GetAll">
+            <summary>
+            Listar todos os registros da tabela Produto.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.ProdutoController.GetPorCategoria(System.Int32)">
+            <summary>
+            Listar todos os registros da tabela Produto de acordo com o código de Categoria informado.
+            </summary>
+            <param name="catid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.ProdutoController.GetPorSubcategoria(System.Int32)">
+            <summary>
+            Listar todos os registros da tabela Produto de acordo com o código de Subcategoria informado.
+            </summary>
+            <param name="subid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.ProdutoController.GetPorCategoriaPorSubcategoria(System.Int32,System.Int32)">
+            <summary>
+            Lista todos os registros de acordo com os códigos de Categoria e Subcategoria informados.
+            </summary>
+            <param name="catid"></param>
+            <param name="subid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.ProdutoController.GetById(System.Int32)">
+            <summary>
+            Lista o registro da tabela Produto de acordo com a chave primária informada
+            </summary>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.ProdutoController.Post(Atacado.Poco.Estoque.ProdutoPoco)">
+            <summary>
+            Realiza a criação de um registro através de uma instância
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.ProdutoController.Put(Atacado.Poco.Estoque.ProdutoPoco)">
+            <summary>
+            Realiza a alteração de um registro através de uma instância
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.ProdutoController.DeleteById(System.Int32)">
+            <summary>
+            Realiza a exclusão de um registro de acordo com a chave primária informada
+            </summary>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.ProdutoController.Delete(Atacado.Poco.Estoque.ProdutoPoco)">
+            <summary>
+            Realiza a exclusão de um registro através de uma instância
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AtacadoApi.Controllers.ProfissaoController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.ProfissaoController.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.ProfissaoController.GetAll">
+            <summary>
+            Listar todos os registros da tabela Categoria.
+            </summary>
+            <returns>Uma lista com todos os registros.</returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.ProfissaoController.GetById(System.Int32)">
+            <summary>
+            Lista o registro da tabela Categoria de acordo com a chave informada
+            </summary>
+            <param name="chave">chave primária da tabela</param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.ProfissaoController.Post(Atacado.Poco.RH.ProfissaoPoco)">
+            <summary>
+            Realiza a criação de um registro através de uma instância
+            </summary>
+            <param name="poco">instância passada como parâmetro</param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.ProfissaoController.Put(Atacado.Poco.RH.ProfissaoPoco)">
+            <summary>
+            Realiza a alteração de um registro através de uma instância
+            </summary>
+            <param name="poco">instância passada como parâmetro</param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.ProfissaoController.DeleteById(System.Int32)">
+            <summary>
+            Realiza a exclusão de um registro de acordo com a chave informada
+            </summary>
+            <param name="chave">chave primária da tabela</param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.ProfissaoController.Delete(Atacado.Poco.RH.ProfissaoPoco)">
+            <summary>
+            Realiza a exclusão de um registro através de uma instância
+            </summary>
+            <param name="poco">instância passada como parâmetro</param>
+            <returns></returns>
+        </member>
+        <member name="T:AtacadoApi.Controllers.SubcategoriaController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.SubcategoriaController.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.SubcategoriaController.GetAll">
+            <summary>
+            Listar todos os registros da tabela Subcategoria.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.SubcategoriaController.GetPorCategoria(System.Int32)">
+            <summary>
+            Listar todos os registros da tabela Subcategoria de acordo com o código de Categoria informado.
+            </summary>
+            <param name="catid">Código da categoria (chave estrangeira) da tabela Subcategoria</param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.SubcategoriaController.GetById(System.Int32)">
+            <summary>
+            Lista o registro da tabela Subcategoria de acordo com a chave primária informada
+            </summary>
+            <param name="chave">chave primária da tabela</param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.SubcategoriaController.Post(Atacado.Poco.Estoque.SubcategoriaPoco)">
+            <summary>
+            Realiza a criação de um registro através de uma instância
+            </summary>
+            <param name="poco">instância passada como parâmetro</param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.SubcategoriaController.Put(Atacado.Poco.Estoque.SubcategoriaPoco)">
+            <summary>
+            Realiza a alteração de um registro através de uma instância
+            </summary>
+            <param name="poco">instância passada como parâmetro</param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.SubcategoriaController.DeleteById(System.Int32)">
+            <summary>
+            Realiza a exclusão de um registro de acordo com a chave primária informada
+            </summary>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.SubcategoriaController.Delete(Atacado.Poco.Estoque.SubcategoriaPoco)">
+            <summary>
+            Realiza a exclusão de um registro através de uma instância
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
