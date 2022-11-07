@@ -67,7 +67,7 @@ namespace AtacadoApi.Controllers
         }
 
         /// <summary>
-        /// Realiza a exclusão de um registro de acordo com a chave primária informada
+        /// Realiza a exclusão de um registro de acordo com a chave primária informada.
         /// </summary>
         /// <param name="chave">chave primária da tabela</param>
         /// <returns></returns>
