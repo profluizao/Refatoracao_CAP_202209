@@ -9,7 +9,7 @@ namespace AtacadoApi.Controllers
     /// <summary>
     /// 
     /// </summary>
-    [Route("api/estoque/[controller]")]
+    [Route("api/geral/[controller]")]
     [ApiController]
     public class ClienteController : ControllerBase
     {

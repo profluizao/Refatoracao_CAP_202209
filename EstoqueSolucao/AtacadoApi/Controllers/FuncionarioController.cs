@@ -8,7 +8,7 @@ namespace AtacadoApi.Controllers
     /// <summary>
     /// 
     /// </summary>
-    [Route("api/estoque/[controller]")]
+    [Route("api/rh/[controller]")]
     [ApiController]
     public class FuncionarioController : ControllerBase
     {
