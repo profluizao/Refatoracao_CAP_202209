@@ -28,64 +28,112 @@ namespace AtacadoApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public List<MunicipioPoco> GetAll()
+        public ActionResult<List<MunicipioPoco>> GetAll()
         {
-            return this.servico.Browse();
+            try
+            {
+                List<MunicipioPoco> lista = this.servico.Browse();
+                return Ok(lista);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
         }
 
         /// <summary>
         /// Lista o registro da tabela Municipio de acordo com a Id
         /// </summary>
-        /// <param name="chave"></param>
+        /// <param name="chave">Chave primária da tabela</param>
         /// <returns></returns>
         [HttpGet("{chave:int}")]
-        public MunicipioPoco GetById(int chave)
+        public ActionResult<MunicipioPoco> GetById(int chave)
         {
-            return this.servico.Read(chave);
+            try
+            {
+                MunicipioPoco poco = this.servico.Read(chave);
+                return Ok(poco);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
         }
 
         /// <summary>
-        /// Cria um novo registro de Municipio
+        /// Realiza a criação de um registro através de uma instância
         /// </summary>
-        /// <param name="poco"></param>
+        /// <param name="poco">Instância passada como parâmetro</param>
         /// <returns></returns>
         [HttpPost]
-        public MunicipioPoco Post([FromBody] MunicipioPoco poco)
+        public ActionResult<MunicipioPoco> Post([FromBody] MunicipioPoco poco)
         {
-            return this.servico.Add(poco);
+            try
+            {
+                MunicipioPoco novoPoco = this.servico.Add(poco);
+                return Ok(novoPoco);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
         }
-        
+
         /// <summary>
-        /// Altera um registro dentro de Municipio
+        /// Realiza a alteração de um registro através de uma instância
         /// </summary>
-        /// <param name="poco"></param>
+        /// <param name="poco">Instância passada como parâmetro</param>
         /// <returns></returns>
         [HttpPut]
-        public MunicipioPoco Put([FromBody] MunicipioPoco poco)
+        public ActionResult<MunicipioPoco> Put([FromBody] MunicipioPoco poco)
         {
-            return this.servico.Edit(poco);
+            try
+            {
+                MunicipioPoco novoPoco = this.servico.Edit(poco);
+                return Ok(novoPoco);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
         }
-        
+
         /// <summary>
         /// Realiza a exclusão de um registro de acordo com o Id
         /// </summary>
-        /// <param name="chave"></param>
+        /// <param name="chave">Chave primária da tabela</param>
         /// <returns></returns>
         [HttpDelete("{chave:int}")]
-        public MunicipioPoco DeleteById(int chave)
+        public ActionResult<MunicipioPoco> DeleteById(int chave)
         {
-            return this.servico.Delete(chave);
+            try
+            {
+                MunicipioPoco delPoco = this.servico.Delete(chave);
+                return Ok(delPoco);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
         }
-        
+
         /// <summary>
         /// Realiza a exclusão de um registro na tabela Municipio
         /// </summary>
-        /// <param name="poco"></param>
+        /// <param name="poco">Instância passada como parâmetro</param>
         /// <returns></returns>
         [HttpDelete]
-        public MunicipioPoco Delete([FromBody] MunicipioPoco poco)
+        public ActionResult<MunicipioPoco> Delete([FromBody] MunicipioPoco poco)
         {
-            return this.servico.Delete(poco);
+            try
+            {
+                MunicipioPoco delPoco = this.servico.Delete(poco);
+                return Ok(delPoco);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
         }
     }
 }

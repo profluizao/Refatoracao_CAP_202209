@@ -28,9 +28,17 @@ namespace AtacadoApi.Controllers
         /// </summary>
         /// <returns>Uma lista com todos os registros</returns>
         [HttpGet]
-        public List<InstituicaoBancariaPoco> GetAll()
+        public ActionResult<List<InstituicaoBancariaPoco>> GetAll()
         {
-            return this.servico.Browse();
+            try
+            {
+                List<InstituicaoBancariaPoco> lista = this.servico.Browse();
+                return Ok(lista);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            } 
         }
 
         /// <summary>
@@ -39,9 +47,17 @@ namespace AtacadoApi.Controllers
         /// <param name="chave">Chave primária da tabela</param>
         /// <returns></returns>
         [HttpGet("{chave:int}")]
-        public InstituicaoBancariaPoco GetById(int chave)
+        public ActionResult<InstituicaoBancariaPoco> GetById(int chave)
         {
-           return this.servico.Read(chave);
+            try
+            {
+                InstituicaoBancariaPoco poco = this.servico.Read(chave);
+                return Ok(poco);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }   
         }
 
         /// <summary>
@@ -50,9 +66,17 @@ namespace AtacadoApi.Controllers
         /// <param name="poco">Instância passada como parâmetro</param>
         /// <returns></returns>
         [HttpPost]
-        public InstituicaoBancariaPoco Post([FromBody] InstituicaoBancariaPoco poco)
+        public ActionResult<InstituicaoBancariaPoco> Post([FromBody] InstituicaoBancariaPoco poco)
         {
-            return this.servico.Add(poco);
+            try
+            {
+                InstituicaoBancariaPoco novoPoco = this.servico.Add(poco);
+                return Ok(novoPoco);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
         }
 
         /// <summary>
@@ -61,9 +85,17 @@ namespace AtacadoApi.Controllers
         /// <param name="poco">Instância passada como parâmetro</param>
         /// <returns></returns>
         [HttpPut]
-        public InstituicaoBancariaPoco Put([FromBody] InstituicaoBancariaPoco poco)
+        public ActionResult<InstituicaoBancariaPoco> Put([FromBody] InstituicaoBancariaPoco poco)
         {
-            return this.servico.Edit(poco);
+            try
+            {
+                InstituicaoBancariaPoco novoPoco = this.servico.Edit(poco);
+                return Ok(novoPoco);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
         }
 
         /// <summary>
@@ -72,9 +104,17 @@ namespace AtacadoApi.Controllers
         /// <param name="chave">Chave primária da tabela</param>
         /// <returns></returns>
         [HttpDelete("{chave:int}")]
-        public InstituicaoBancariaPoco DeleteById(int chave)
+        public ActionResult<InstituicaoBancariaPoco> DeleteById(int chave)
         {
-            return this.servico.Delete(chave);
+            try
+            {
+                InstituicaoBancariaPoco delPoco = this.servico.Delete(chave);
+                return Ok(delPoco);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
         }
 
         /// <summary>
@@ -83,9 +123,17 @@ namespace AtacadoApi.Controllers
         /// <param name="poco">Instância passada como parâmetro</param>
         /// <returns></returns>
         [HttpDelete]
-        public InstituicaoBancariaPoco Delete([FromBody] InstituicaoBancariaPoco poco)
+        public ActionResult<InstituicaoBancariaPoco> Delete([FromBody] InstituicaoBancariaPoco poco)
         {
-            return this.servico.Delete(poco);
+            try
+            {
+                InstituicaoBancariaPoco delPoco = this.servico.Delete(poco);
+                return Ok(delPoco);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
         }
     }
 }
