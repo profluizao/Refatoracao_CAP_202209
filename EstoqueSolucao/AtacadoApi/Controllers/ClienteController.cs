@@ -46,7 +46,7 @@ namespace AtacadoApi.Controllers
         /// <summary>
         /// Lista o cliente de acordo com o codigo informado 
         /// </summary>
-        /// <param name="chave"></param>
+        /// <param name="chave">Devolve todos os registros</param>
         /// <returns></returns>
         [HttpGet("{chave:int}")]
         public ActionResult<ClientePoco> GetById(int chave)
@@ -65,7 +65,7 @@ namespace AtacadoApi.Controllers
         /// <summary>
         /// Realiza a criação de um registro através de uma instância
         /// </summary>
-        /// <param name="poco"></param>
+        /// <param name="poco">Chave passada como parâmetro</param>
         /// <returns></returns>
         [HttpPost]
         public ActionResult<ClientePoco> Post([FromBody] ClientePoco poco)
@@ -84,7 +84,7 @@ namespace AtacadoApi.Controllers
         /// <summary>
         /// Realiza a alteração de um registro através de uma instância
         /// </summary>
-        /// <param name="poco"></param>
+        /// <param name="poco">Instância passada como parâmetro</param>
         /// <returns></returns>
         [HttpPut]
         public ActionResult<ClientePoco> Put([FromBody] ClientePoco poco)
@@ -103,7 +103,7 @@ namespace AtacadoApi.Controllers
         /// <summary>
         /// Realiza a exclusão de um registro de acordo com a chave primária informada
         /// </summary>
-        /// <param name="chave"></param>
+        /// <param name="chave">Instância passada como parâmetro</param>
         /// <returns></returns>
         [HttpDelete("{chave:int}")]
         public ActionResult<ClientePoco> DeleteById(int chave)
@@ -122,7 +122,7 @@ namespace AtacadoApi.Controllers
         /// <summary>
         /// Realiza a exclusão de um registro através de uma instância
         /// </summary>
-        /// <param name="poco"></param>
+        /// <param name="poco">Instância passada como parâmetro</param>
         /// <returns></returns>
         [HttpDelete]
         public ActionResult<ClientePoco> Delete([FromBody] ClientePoco poco)
