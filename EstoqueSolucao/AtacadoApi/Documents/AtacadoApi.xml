@@ -75,35 +75,35 @@
             <summary>
             Lista o cliente de acordo com o codigo informado 
             </summary>
-            <param name="chave"></param>
+            <param name="chave">Devolve todos os registros</param>
             <returns></returns>
         </member>
         <member name="M:AtacadoApi.Controllers.ClienteController.Post(Atacado.Poco.Geral.ClientePoco)">
             <summary>
             Realiza a criação de um registro através de uma instância
             </summary>
-            <param name="poco"></param>
+            <param name="poco">Chave passada como parâmetro</param>
             <returns></returns>
         </member>
         <member name="M:AtacadoApi.Controllers.ClienteController.Put(Atacado.Poco.Geral.ClientePoco)">
             <summary>
             Realiza a alteração de um registro através de uma instância
             </summary>
-            <param name="poco"></param>
+            <param name="poco">Instância passada como parâmetro</param>
             <returns></returns>
         </member>
         <member name="M:AtacadoApi.Controllers.ClienteController.DeleteById(System.Int32)">
             <summary>
             Realiza a exclusão de um registro de acordo com a chave primária informada
             </summary>
-            <param name="chave"></param>
+            <param name="chave">Instância passada como parâmetro</param>
             <returns></returns>
         </member>
         <member name="M:AtacadoApi.Controllers.ClienteController.Delete(Atacado.Poco.Geral.ClientePoco)">
             <summary>
             Realiza a exclusão de um registro através de uma instância
             </summary>
-            <param name="poco"></param>
+            <param name="poco">Instância passada como parâmetro</param>
             <returns></returns>
         </member>
         <member name="M:AtacadoApi.Controllers.DepartamentoController.GetAll">
@@ -146,6 +146,16 @@
             </summary>
             <param name="poco">Instância passada como parâmetro</param>
             <returns></returns>
+        </member>
+        <member name="T:AtacadoApi.Controllers.EstadoController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.EstadoController.#ctor">
+            <summary>
+            
+            </summary>
         </member>
         <member name="M:AtacadoApi.Controllers.EstadoController.GetAll">
             <summary>
@@ -304,35 +314,35 @@
             <summary>
             Lista o registro da tabela Municipio de acordo com a Id
             </summary>
-            <param name="chave"></param>
+            <param name="chave">Chave primária da tabela</param>
             <returns></returns>
         </member>
         <member name="M:AtacadoApi.Controllers.MunicipioController.Post(Atacado.Poco.Geral.MunicipioPoco)">
             <summary>
-            Cria um novo registro de Municipio
+            Realiza a criação de um registro através de uma instância
             </summary>
-            <param name="poco"></param>
+            <param name="poco">Instância passada como parâmetro</param>
             <returns></returns>
         </member>
         <member name="M:AtacadoApi.Controllers.MunicipioController.Put(Atacado.Poco.Geral.MunicipioPoco)">
             <summary>
-            Altera um registro dentro de Municipio
+            Realiza a alteração de um registro através de uma instância
             </summary>
-            <param name="poco"></param>
+            <param name="poco">Instância passada como parâmetro</param>
             <returns></returns>
         </member>
         <member name="M:AtacadoApi.Controllers.MunicipioController.DeleteById(System.Int32)">
             <summary>
             Realiza a exclusão de um registro de acordo com o Id
             </summary>
-            <param name="chave"></param>
+            <param name="chave">Chave primária da tabela</param>
             <returns></returns>
         </member>
         <member name="M:AtacadoApi.Controllers.MunicipioController.Delete(Atacado.Poco.Geral.MunicipioPoco)">
             <summary>
             Realiza a exclusão de um registro na tabela Municipio
             </summary>
-            <param name="poco"></param>
+            <param name="poco">Instância passada como parâmetro</param>
             <returns></returns>
         </member>
         <member name="T:AtacadoApi.Controllers.PaisController">
