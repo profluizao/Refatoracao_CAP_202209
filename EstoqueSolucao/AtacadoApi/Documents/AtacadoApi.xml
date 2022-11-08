@@ -147,6 +147,16 @@
             <param name="poco">Instância passada como parâmetro</param>
             <returns></returns>
         </member>
+        <member name="T:AtacadoApi.Controllers.EstadoController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.EstadoController.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:AtacadoApi.Controllers.EstadoController.GetAll">
             <summary>
             Listar todos os registros da tabela Categoria.

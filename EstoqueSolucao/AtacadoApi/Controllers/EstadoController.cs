@@ -4,12 +4,18 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AtacadoApi.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [Route("api/geral/[controller]")]
     [ApiController]
     public class EstadoController : ControllerBase
     {
         private EstadoServico servico;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public EstadoController() : base()
         {
             this.servico = new EstadoServico();
@@ -20,9 +26,17 @@ namespace AtacadoApi.Controllers
         /// </summary>
         /// <returns>Uma lista com todos os registros.</returns>
         [HttpGet]
-        public List<EstadoPoco> GetAll()
+        public ActionResult<List<EstadoPoco>> GetAll()
         {
-            return this.servico.Browse();
+            try
+            {
+                List<EstadoPoco> lista = this.servico.Browse();
+                return Ok(lista);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
         }
 
         /// <summary>
@@ -31,9 +45,18 @@ namespace AtacadoApi.Controllers
         /// <param name="chave">chave primária da tabela</param>
         /// <returns></returns>
         [HttpGet("{chave:int}")]
-        public EstadoPoco GetById(int chave)
+        public ActionResult<EstadoPoco> GetById(int chave)
         {
-            return this.servico.Read(chave);
+            try
+            {
+                EstadoPoco poco = this.servico.Read(chave);
+                return Ok(poco);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+            
         }
 
         /// <summary>
@@ -42,9 +65,17 @@ namespace AtacadoApi.Controllers
         /// <param name="poco">instância passada como parâmetro</param>
         /// <returns></returns>
         [HttpPost]
-        public EstadoPoco Post([FromBody] EstadoPoco poco)
+        public ActionResult<EstadoPoco> Post([FromBody] EstadoPoco poco)
         {
-            return this.servico.Add(poco);
+            try
+            {
+                EstadoPoco atPoco = this.servico.Add(poco);
+                return Ok(atPoco);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
         }
 
         /// <summary>
@@ -53,9 +84,17 @@ namespace AtacadoApi.Controllers
         /// <param name="poco">instância passada como parâmetro</param>
         /// <returns></returns
         [HttpPut]
-        public EstadoPoco Put([FromBody] EstadoPoco poco)
+        public ActionResult<EstadoPoco> Put([FromBody] EstadoPoco poco)
         {
-            return this.servico.Edit(poco);
+            try
+            {
+                EstadoPoco atPoco = this.servico.Edit(poco);
+                return Ok(atPoco);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
         }
 
         /// <summary>
@@ -64,9 +103,17 @@ namespace AtacadoApi.Controllers
         /// <param name="chave">chave primária da tabela</param>
         /// <returns></returns>
         [HttpDelete("{chave:int}")]
-        public EstadoPoco DeleteById(int chave)
+        public ActionResult<EstadoPoco> DeleteById(int chave)
         {
-            return this.servico.Delete(chave);
+            try
+            {
+                EstadoPoco delPoco = this.servico.Delete(chave);
+                return Ok(delPoco);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
         }
 
         /// <summary>
@@ -75,9 +122,17 @@ namespace AtacadoApi.Controllers
         /// <param name="poco">instância passada como parâmetro</param>
         /// <returns></returns>
         [HttpDelete]
-        public EstadoPoco Delete([FromBody] EstadoPoco poco)
+        public ActionResult<EstadoPoco> Delete([FromBody] EstadoPoco poco)
         {
-            return this.servico.Delete(poco);
+            try
+            {
+                EstadoPoco delPoco = this.servico.Delete(poco);
+                return Ok(delPoco);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
         }
     }
 }

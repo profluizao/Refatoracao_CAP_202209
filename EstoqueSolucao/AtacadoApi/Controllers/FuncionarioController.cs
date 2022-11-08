@@ -27,9 +27,18 @@ namespace AtacadoApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public List<FuncionarioPoco> GetAll()
+        public ActionResult<List<FuncionarioPoco>> GetAll()
         {
-            return this.servico.Browse();
+            try
+            {
+                List<FuncionarioPoco> lista = this.servico.Browse();
+                return Ok(lista);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+            
         }
 
         /// <summary>
@@ -38,9 +47,17 @@ namespace AtacadoApi.Controllers
         /// <param name="chave"></param>
         /// <returns></returns>
         [HttpGet("{chave:int}")]
-        public FuncionarioPoco GetById(int chave)
+        public ActionResult<FuncionarioPoco> GetById(int chave)
         {
-            return this.servico.Read(chave);
+            try
+            {
+                FuncionarioPoco poco = this.servico.Read(chave);
+                return Ok(poco);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
         }
 
         /// <summary>
@@ -49,9 +66,17 @@ namespace AtacadoApi.Controllers
         /// <param name="poco"></param>
         /// <returns></returns>
         [HttpPost]
-        public FuncionarioPoco Post([FromBody] FuncionarioPoco poco)
+        public ActionResult<FuncionarioPoco> Post([FromBody] FuncionarioPoco poco)
         {
-            return this.servico.Add(poco);
+            try
+            {
+                FuncionarioPoco novo = this.servico.Add(poco);
+                return Ok(poco);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
         }
 
         /// <summary>
@@ -60,9 +85,17 @@ namespace AtacadoApi.Controllers
         /// <param name="poco"></param>
         /// <returns></returns>
         [HttpPut]
-        public FuncionarioPoco Put([FromBody] FuncionarioPoco poco)
+        public ActionResult<FuncionarioPoco> Put([FromBody] FuncionarioPoco poco)
         {
-            return this.servico.Edit(poco);
+            try
+            {
+                FuncionarioPoco atPoco = this.servico.Edit(poco);
+                return Ok(atPoco);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
         }
 
         /// <summary>
@@ -71,9 +104,18 @@ namespace AtacadoApi.Controllers
         /// <param name="chave"></param>
         /// <returns></returns>
         [HttpDelete("{chave:int}")]
-        public FuncionarioPoco DeleteById(int chave)
+        public ActionResult<FuncionarioPoco> DeleteById(int chave)
         {
-            return this.servico.Delete(chave);
+            try
+            {
+                FuncionarioPoco delPoco = this.servico.Delete(chave);
+                return Ok(delPoco);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString);
+            }
+            
         }
 
         /// <summary>
@@ -82,9 +124,17 @@ namespace AtacadoApi.Controllers
         /// <param name="poco"></param>
         /// <returns></returns>
         [HttpDelete]
-        public FuncionarioPoco Delete([FromBody] FuncionarioPoco poco)
+        public ActionResult<FuncionarioPoco> Delete([FromBody] FuncionarioPoco poco)
         {
-            return this.servico.Delete(poco);
+            try
+            {
+                FuncionarioPoco delPoco = this.servico.Delete(poco);
+                return Ok(delPoco);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString);
+            }
         }
     }
 }
