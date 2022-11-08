@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 using Atacado.Poco.Estoque;
 using Atacado.Servico.Estoque;
+using System;
 
 namespace AtacadoApi.Controllers
 {
@@ -28,9 +29,17 @@ namespace AtacadoApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public List<ProdutoPoco> GetAll()
+        public ActionResult<List<ProdutoPoco>> GetAll()
         {
-            return this.servico.Browse();
+            try
+            {
+                List<ProdutoPoco> list = this.servico.Browse();
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         /// <summary>
@@ -39,10 +48,18 @@ namespace AtacadoApi.Controllers
         /// <param name="catid"></param>
         /// <returns></returns>
         [HttpGet("PorCategoria/{catid:int}")]
-        public List<ProdutoPoco> GetPorCategoria(int catid)
+        public ActionResult<List<ProdutoPoco>> GetPorCategoria(int catid)
         {
-            return this.servico.Browse(cat => cat.CodigoCategoria == catid).ToList();
-        }
+            try
+            {
+                List<ProdutoPoco> list = this.servico.Browse(cat => cat.CodigoCategoria == catid).ToList();
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }   
 
         /// <summary>
         /// Listar todos os registros da tabela Produto de acordo com o código de Subcategoria informado.
@@ -50,9 +67,17 @@ namespace AtacadoApi.Controllers
         /// <param name="subid"></param>
         /// <returns></returns>
         [HttpGet("PorSubcategoria/{subid:int}")]
-        public List<ProdutoPoco> GetPorSubcategoria(int subid)
+        public ActionResult<List<ProdutoPoco>> GetPorSubcategoria(int subid)
         {
-            return this.servico.Browse(sub => sub.CodigoSubcategoria == subid).ToList();
+             try
+            {
+                List<ProdutoPoco> list = this.servico.Browse(sub => sub.CodigoSubcategoria == subid).ToList();
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         /// <summary>
@@ -62,10 +87,17 @@ namespace AtacadoApi.Controllers
         /// <param name="subid"></param>
         /// <returns></returns>
         [HttpGet("PorCategoria/{catid:int}/PorSubcategoria/{subid:int}")]
-        public List<ProdutoPoco> GetPorCategoriaPorSubcategoria(int catid, int subid)
+        public ActionResult<List<ProdutoPoco>> GetPorCategoriaPorSubcategoria(int catid, int subid)
         {
-            return this.servico.Browse(pro => (pro.CodigoCategoria == catid) && (pro.CodigoSubcategoria == subid))
-                .ToList();
+            try
+            {
+                List<ProdutoPoco> list = this.servico.Browse(pro => (pro.CodigoCategoria == catid) && (pro.CodigoSubcategoria == subid)).ToList();
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         /// <summary>
@@ -74,9 +106,17 @@ namespace AtacadoApi.Controllers
         /// <param name="chave"></param>
         /// <returns></returns>
         [HttpGet("{chave:int}")]
-        public ProdutoPoco GetById(int chave)
+        public ActionResult<ProdutoPoco> GetById(int chave)
         {
-            return this.servico.Read(chave);
+            try
+            {
+                ProdutoPoco list = this.servico.Read(chave);
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         /// <summary>
@@ -85,9 +125,17 @@ namespace AtacadoApi.Controllers
         /// <param name="poco"></param>
         /// <returns></returns>
         [HttpPost]
-        public ProdutoPoco Post([FromBody] ProdutoPoco poco)
+        public ActionResult<ProdutoPoco> Post([FromBody] ProdutoPoco poco)
         {
-            return this.servico.Add(poco);
+            try
+            {
+                ProdutoPoco list = this.servico.Add(poco);
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         /// <summary>
@@ -96,9 +144,17 @@ namespace AtacadoApi.Controllers
         /// <param name="poco"></param>
         /// <returns></returns>
         [HttpPut]
-        public ProdutoPoco Put([FromBody] ProdutoPoco poco)
+        public ActionResult<ProdutoPoco> Put([FromBody] ProdutoPoco poco)
         {
-            return this.servico.Edit(poco);
+            try
+            {
+                ProdutoPoco list = this.servico.Edit(poco);
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         /// <summary>
@@ -107,9 +163,17 @@ namespace AtacadoApi.Controllers
         /// <param name="chave"></param>
         /// <returns></returns>
         [HttpDelete("{chave:int}")]
-        public ProdutoPoco DeleteById(int chave)
+        public ActionResult<ProdutoPoco> DeleteById(int chave)
         {
-            return this.servico.Delete(chave);
+            try
+            {
+                ProdutoPoco list = this.servico.Delete(chave);
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         /// <summary>
@@ -118,9 +182,17 @@ namespace AtacadoApi.Controllers
         /// <param name="poco"></param>
         /// <returns></returns>
         [HttpDelete]
-        public ProdutoPoco Delete([FromBody] ProdutoPoco poco)
+        public ActionResult<ProdutoPoco> Delete([FromBody] ProdutoPoco poco)
         {
-            return this.servico.Delete(poco);
+            try
+            {
+                ProdutoPoco list = this.servico.Delete(poco);
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest();
+            }
         }
     }
 }
