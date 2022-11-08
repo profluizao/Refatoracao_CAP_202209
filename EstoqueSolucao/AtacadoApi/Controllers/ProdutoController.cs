@@ -34,11 +34,11 @@ namespace AtacadoApi.Controllers
             try
             {
                 List<ProdutoPoco> list = this.servico.Browse();
-                return Ok();
+                return Ok(list);
             }
-            catch
+            catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.ToString());
             }
         }
 
@@ -53,11 +53,11 @@ namespace AtacadoApi.Controllers
             try
             {
                 List<ProdutoPoco> list = this.servico.Browse(cat => cat.CodigoCategoria == catid).ToList();
-                return Ok();
+                return Ok(list);
             }
-            catch
+            catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.ToString());
             }
         }   
 
@@ -72,11 +72,11 @@ namespace AtacadoApi.Controllers
              try
             {
                 List<ProdutoPoco> list = this.servico.Browse(sub => sub.CodigoSubcategoria == subid).ToList();
-                return Ok();
+                return Ok(list);
             }
-            catch
+            catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.ToString());
             }
         }
 
@@ -92,11 +92,11 @@ namespace AtacadoApi.Controllers
             try
             {
                 List<ProdutoPoco> list = this.servico.Browse(pro => (pro.CodigoCategoria == catid) && (pro.CodigoSubcategoria == subid)).ToList();
-                return Ok();
+                return Ok(list);
             }
-            catch
+            catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.ToString());
             }
         }
 
@@ -111,11 +111,11 @@ namespace AtacadoApi.Controllers
             try
             {
                 ProdutoPoco list = this.servico.Read(chave);
-                return Ok();
+                return Ok(list);
             }
-            catch
+            catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.ToString());
             }
         }
 
@@ -130,11 +130,11 @@ namespace AtacadoApi.Controllers
             try
             {
                 ProdutoPoco list = this.servico.Add(poco);
-                return Ok();
+                return Ok(list);
             }
-            catch
+            catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.ToString());
             }
         }
 
@@ -149,11 +149,11 @@ namespace AtacadoApi.Controllers
             try
             {
                 ProdutoPoco list = this.servico.Edit(poco);
-                return Ok();
+                return Ok(list);
             }
-            catch
+            catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.ToString());
             }
         }
 
@@ -168,11 +168,11 @@ namespace AtacadoApi.Controllers
             try
             {
                 ProdutoPoco list = this.servico.Delete(chave);
-                return Ok();
+                return Ok(list);
             }
-            catch
+            catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.ToString());
             }
         }
 
@@ -187,11 +187,11 @@ namespace AtacadoApi.Controllers
             try
             {
                 ProdutoPoco list = this.servico.Delete(poco);
-                return Ok();
+                return Ok(list);
             }
-            catch
+            catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.ToString());
             }
         }
     }

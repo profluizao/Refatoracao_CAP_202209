@@ -34,11 +34,11 @@ namespace AtacadoApi.Controllers
             try
             {
                 List<PaisPoco> result = this.servico.Browse();
-                return Ok();
+                return Ok(result);
             }
-            catch
+            catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.ToString());
             }
         }
         
@@ -53,11 +53,11 @@ namespace AtacadoApi.Controllers
             try
             {
                 PaisPoco result = this.servico.Read(chave);
-                return Ok();
+                return Ok(result);
             }
-            catch
+            catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.ToString());
             }
         }
 
@@ -72,11 +72,11 @@ namespace AtacadoApi.Controllers
             try
             {
                 PaisPoco result = this.servico.Add(poco);
-                return Ok();
+                return Ok(result);
             }
-            catch
+            catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.ToString());
             }
         }
 
@@ -91,11 +91,11 @@ namespace AtacadoApi.Controllers
             try
             {
                 PaisPoco result = this.servico.Edit(poco);
-                return Ok();
+                return Ok(result);
             }
-            catch
+            catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.ToString());
             }
         }
 
@@ -110,11 +110,11 @@ namespace AtacadoApi.Controllers
             try
             {
                 PaisPoco result = this.servico.Delete(chave);
-                return Ok();
+                return Ok(result);
             }
-            catch
+            catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.ToString());
             }
         }
 
@@ -129,11 +129,11 @@ namespace AtacadoApi.Controllers
             try
             {
                 PaisPoco result = this.servico.Delete(poco);
-                return Ok();
+                return Ok(result);
             }
-            catch
+            catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.ToString());
             }
         }
 
