@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 using Atacado.Poco.Estoque;
 using Atacado.Servico.Estoque;
+using System;
 
 namespace AtacadoApi.Controllers
 {
@@ -28,9 +29,17 @@ namespace AtacadoApi.Controllers
         /// </summary>
         /// <returns>Uma lista com todos os registros.</returns>
         [HttpGet]
-        public List<CategoriaPoco> GetAll()
+        public ActionResult<List<CategoriaPoco>> GetAll()
         {
-            return this.servico.Browse();
+            try
+            {
+                List<CategoriaPoco> lista = this.servico.Browse();
+                return Ok(lista);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
         }
 
         /// <summary>
@@ -39,9 +48,17 @@ namespace AtacadoApi.Controllers
         /// <param name="chave">chave primária da tabela</param>
         /// <returns></returns>
         [HttpGet("{chave:int}")]
-        public CategoriaPoco GetById(int chave)
+        public ActionResult<CategoriaPoco> GetById(int chave)
         {
-            return this.servico.Read(chave);
+            try
+            {
+                CategoriaPoco poco = this.servico.Read(chave);
+                return Ok(poco);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
         }
 
         /// <summary>
@@ -50,9 +67,17 @@ namespace AtacadoApi.Controllers
         /// <param name="poco">instância passada como parâmetro</param>
         /// <returns></returns>
         [HttpPost]
-        public CategoriaPoco Post([FromBody] CategoriaPoco poco) 
+        public ActionResult<CategoriaPoco> Post([FromBody] CategoriaPoco poco) 
         {
-            return this.servico.Add(poco);
+            try
+            {
+                CategoriaPoco novoPoco = this.servico.Add(poco);
+                return Ok(novoPoco);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
         }
 
         /// <summary>
@@ -61,9 +86,17 @@ namespace AtacadoApi.Controllers
         /// <param name="poco">instância passada como parâmetro</param>
         /// <returns></returns>
         [HttpPut]
-        public CategoriaPoco Put([FromBody] CategoriaPoco poco)
+        public ActionResult<CategoriaPoco> Put([FromBody] CategoriaPoco poco)
         {
-            return this.servico.Edit(poco);
+            try
+            {
+                CategoriaPoco novoPoco = this.servico.Edit(poco);
+                return Ok(novoPoco);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
         }
 
         /// <summary>
@@ -72,9 +105,17 @@ namespace AtacadoApi.Controllers
         /// <param name="chave">chave primária da tabela</param>
         /// <returns></returns>
         [HttpDelete("{chave:int}")]
-        public CategoriaPoco DeleteById(int chave)
+        public ActionResult<CategoriaPoco> DeleteById(int chave)
         {
-            return this.servico.Delete(chave);
+            try
+            {
+                CategoriaPoco poco = this.servico.Delete(chave);
+                return Ok(poco);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
         }
 
         /// <summary>
@@ -83,9 +124,17 @@ namespace AtacadoApi.Controllers
         /// <param name="poco">instância passada como parâmetro</param>
         /// <returns></returns>
         [HttpDelete]
-        public CategoriaPoco Delete([FromBody] CategoriaPoco poco)
+        public ActionResult<CategoriaPoco> Delete([FromBody] CategoriaPoco poco)
         {
-            return this.servico.Delete(poco);
+            try
+            {
+                CategoriaPoco novoPoco = this.servico.Delete(poco);
+                return Ok(novoPoco);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
         }
     }
 }
