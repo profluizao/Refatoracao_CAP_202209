@@ -7,24 +7,25 @@ using System.Threading.Tasks;
 using Atacado.Servico.Base;
 using Atacado.DB.EF.Database;
 using Atacado.Poco.Estoque;
-using Atacado.Repositorio.Estoque;
+
 using System.Linq.Expressions;
+using Atacado.Repositorio.Base;
 
 namespace Atacado.Servico.Estoque
 {
     public class ProdutoServico : BaseServico<ProdutoPoco, Produto>
     {
-        private ProdutoRepo repo;
+        private GenericRepository<Produto> genrepo;
 
         public ProdutoServico()
         {
-            this.repo = new ProdutoRepo();
+            this.genrepo = new GenericRepository<Produto>();
         }
 
         public override ProdutoPoco Add(ProdutoPoco poco)
         {
             Produto nova = this.ConvertTo(poco);
-            Produto criada = this.repo.Create(nova);
+            Produto criada = this.genrepo.Insert(nova);
             return this.ConvertTo(criada);
         }
 
@@ -40,11 +41,11 @@ namespace Atacado.Servico.Estoque
 
             if (predicate == null)
             {
-                query = this.repo.Read(null);
+                query = this.genrepo.Browseable(null);
             }
             else
             {
-                query = this.repo.Read(predicate);
+                query = this.genrepo.Browseable(predicate);
             }
             listaPoco = query.Select(pro =>
                     new ProdutoPoco()
@@ -89,14 +90,14 @@ namespace Atacado.Servico.Estoque
 
         public override ProdutoPoco Delete(int chave)
         {
-            Produto del = this.repo.Delete(chave);
+            Produto del = this.genrepo.Delete(chave);
             ProdutoPoco delPoco = this.ConvertTo(del);
             return delPoco;
         }
 
         public override ProdutoPoco Delete(ProdutoPoco poco)
         {
-            Produto del = this.repo.Delete(poco.Codigo);
+            Produto del = this.genrepo.Delete(poco.Codigo);
             ProdutoPoco delPoco = this.ConvertTo(del);
             return delPoco;
         }
@@ -104,14 +105,14 @@ namespace Atacado.Servico.Estoque
         public override ProdutoPoco Edit(ProdutoPoco poco)
         {
             Produto editada = this.ConvertTo(poco);
-            Produto alterada = this.repo.Update(editada);
+            Produto alterada = this.genrepo.Update(editada);
             ProdutoPoco alteradaPoco = this.ConvertTo(alterada);
             return alteradaPoco;
         }
 
         public override ProdutoPoco Read(int chave)
         {
-            Produto lida = this.repo.Read(chave);
+            Produto lida = this.genrepo.GetById(chave);
             ProdutoPoco lidaPoco = this.ConvertTo(lida);
             return lidaPoco;
         }
