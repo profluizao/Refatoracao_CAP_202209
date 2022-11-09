@@ -1,35 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-using Atacado.Servico.Base;
-using Atacado.DB.EF.Database;
-using Atacado.Poco.Estoque;
-using Atacado.Repositorio.Estoque;
-using System.Linq.Expressions;
-using Atacado.Poco.Geral;
-using System.Net;
-using Atacado.Servico.Base;
 using Atacado.DB.EF.Database;
 using Atacado.Poco.Geral;
-using Atacado.Repositorio.Geral;
+using Atacado.Repositorio.Base;
+using Atacado.Servico.Base;
 
 namespace Atacado.Servico.Geral
 {
     public class InstituicaoBancariaServico : BaseServico<InstituicaoBancariaPoco, InstituicaoBancaria>
     {
-        private InstituicaoBancariaRepo repo;
+        private GenericRepository<InstituicaoBancaria> genrepo;
 
         public InstituicaoBancariaServico() : base()
         {
-            this.repo = new InstituicaoBancariaRepo();
+            this.genrepo = new GenericRepository<InstituicaoBancaria>();
         }
         public override InstituicaoBancariaPoco Add(InstituicaoBancariaPoco poco)
         {
             InstituicaoBancaria nova = this.ConvertTo(poco);
-            InstituicaoBancaria criada = this.repo.Create(nova);
+            InstituicaoBancaria criada = this.genrepo.Insert(nova);
             return this.ConvertTo(criada);
         }
 
@@ -43,11 +37,11 @@ namespace Atacado.Servico.Geral
             IQueryable<InstituicaoBancaria> query;
             if (predicate == null)
             {
-                query = this.repo.Read(null);
+                query = this.genrepo.Browseable(null);
             }
             else
             {
-                query = this.repo.Read(predicate);
+                query = this.genrepo.Browseable(predicate);
             }
 
             listaPoco = query.Select(ins =>
@@ -93,14 +87,14 @@ namespace Atacado.Servico.Geral
 
         public override InstituicaoBancariaPoco Delete(int chave)
         {
-            InstituicaoBancaria del = this.repo.Delete(chave);
+            InstituicaoBancaria del = this.genrepo.Delete(chave);
             InstituicaoBancariaPoco delPoco = this.ConvertTo(del);
             return delPoco;
         }
 
         public override InstituicaoBancariaPoco Delete(InstituicaoBancariaPoco poco)
         {
-            InstituicaoBancaria del = this.repo.Delete(poco.InstituicaoBancariaId);
+            InstituicaoBancaria del = this.genrepo.Delete(poco.InstituicaoBancariaId);
             InstituicaoBancariaPoco delPoco = this.ConvertTo(del);
             return delPoco;
         }
@@ -108,14 +102,14 @@ namespace Atacado.Servico.Geral
         public override InstituicaoBancariaPoco Edit(InstituicaoBancariaPoco poco)
         {
             InstituicaoBancaria editada = this.ConvertTo(poco);
-            InstituicaoBancaria alterada = this.repo.Update(editada);
+            InstituicaoBancaria alterada = this.genrepo.Update(editada);
             InstituicaoBancariaPoco alteradaPoco = this.ConvertTo(alterada);
             return alteradaPoco;
         }
 
         public override InstituicaoBancariaPoco Read(int chave)
         {
-            InstituicaoBancaria lida = this.repo.Read(chave);
+            InstituicaoBancaria lida = this.genrepo.GetById(chave);
             InstituicaoBancariaPoco lidaPoco = this.ConvertTo(lida);
             return lidaPoco;
         }
