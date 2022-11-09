@@ -9,21 +9,22 @@ using Atacado.DB.EF.Database;
 using Atacado.Poco.RH;
 using Atacado.Repositorio.RH;
 using System.Linq.Expressions;
+using Atacado.Repositorio.Base;
 
 namespace Atacado.Servico.RH
 {
     public class FuncionarioServico : BaseServico<FuncionarioPoco, Funcionario>
     {
-        private FuncionarioRepo repo;
+        private GenericRepository<Funcionario> genrepo;
 
         public FuncionarioServico() : base()
         {
-            this.repo = new FuncionarioRepo();
+            this.genrepo = new GenericRepository<Funcionario>();
         }
         public override FuncionarioPoco Add(FuncionarioPoco poco)
         {
             Funcionario nova = this.ConvertTo(poco);
-            Funcionario criada = this.repo.Create(nova);
+            Funcionario criada = this.genrepo.Insert(nova);
             return this.ConvertTo(criada);
         }
         public override List<FuncionarioPoco> Browse()
@@ -37,11 +38,11 @@ namespace Atacado.Servico.RH
             IQueryable<Funcionario> query;
             if (predicate == null)
             {
-                query = this.repo.Read(null);
+                query = this.genrepo.Browseable(null);
             }
             else
             {
-                query = this.repo.Read(predicate);
+                query = this.genrepo.Browseable(predicate);
             }
 
             listaPoco = query.Select(fun =>
@@ -103,14 +104,14 @@ namespace Atacado.Servico.RH
 
         public override FuncionarioPoco Delete(int chave)
         {
-            Funcionario del = this.repo.Delete(chave);
+            Funcionario del = this.genrepo.Delete(chave);
             FuncionarioPoco delPoco = this.ConvertTo(del);
             return delPoco;
         }
 
         public override FuncionarioPoco Delete(FuncionarioPoco poco)
         {
-            Funcionario del = this.repo.Delete(poco.FuncionarioId);
+            Funcionario del = this.genrepo.Delete(poco.FuncionarioId);
             FuncionarioPoco delPoco = this.ConvertTo(del);
             return delPoco;
         }
@@ -118,14 +119,14 @@ namespace Atacado.Servico.RH
         public override FuncionarioPoco Edit(FuncionarioPoco poco)
         {
             Funcionario editada = this.ConvertTo(poco);
-            Funcionario alterada = this.repo.Update(editada);
+            Funcionario alterada = this.genrepo.Update(editada);
             FuncionarioPoco alteradaPoco = this.ConvertTo(alterada);
             return alteradaPoco;
         }
 
         public override FuncionarioPoco Read(int chave)
         {
-            Funcionario lida = this.repo.Read(chave);
+            Funcionario lida = this.genrepo.GetById(chave);
             FuncionarioPoco lidaPoco = this.ConvertTo(lida);
             return lidaPoco;
         }

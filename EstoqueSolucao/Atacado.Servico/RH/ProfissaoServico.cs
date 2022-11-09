@@ -8,21 +8,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
+using Atacado.Repositorio.Base;
 
 namespace Atacado.Servico.RH
 {
     public class ProfissaoServico : BaseServico<ProfissaoPoco, Profissao>
     {
-        private ProfissaoRepo repo;
+        private GenericRepository<Profissao> genrepo;
 
         public ProfissaoServico() : base()
         {
-            this.repo = new ProfissaoRepo();
+            this.genrepo = new GenericRepository<Profissao>();
         }
         public override ProfissaoPoco Add(ProfissaoPoco poco)
         {
             Profissao nova = this.ConvertTo(poco);
-            Profissao criada = this.repo.Create(nova);
+            Profissao criada = this.genrepo.Insert(nova);
             return this.ConvertTo(criada);
         }
 
@@ -36,11 +37,11 @@ namespace Atacado.Servico.RH
             IQueryable<Profissao> query;
             if (predicate == null)
             {
-                query = this.repo.Read(null);
+                query = this.genrepo.Browseable(null);
             }
             else
             {
-                query = this.repo.Read(predicate);
+                query = this.genrepo.Browseable(predicate);
             }
 
             listaPoco = query.Select(pro =>
@@ -79,14 +80,14 @@ namespace Atacado.Servico.RH
 
         public override ProfissaoPoco Delete(int chave)
         {
-            Profissao del = this.repo.Delete(chave);
+            Profissao del = this.genrepo.Delete(chave);
             ProfissaoPoco delPoco = this.ConvertTo(del);
             return delPoco;
         }
 
         public override ProfissaoPoco Delete(ProfissaoPoco poco)
         {
-            Profissao del = this.repo.Delete(poco.ProfissaoId);
+            Profissao del = this.genrepo.Delete(poco.ProfissaoId);
             ProfissaoPoco delPoco = this.ConvertTo(del);
             return delPoco;
         }
@@ -94,14 +95,14 @@ namespace Atacado.Servico.RH
         public override ProfissaoPoco Edit(ProfissaoPoco poco)
         {
             Profissao editada = this.ConvertTo(poco);
-            Profissao alterada = this.repo.Update(editada);
+            Profissao alterada = this.genrepo.Update(editada);
             ProfissaoPoco alteradaPoco = this.ConvertTo(alterada);
             return alteradaPoco;
         }
 
         public override ProfissaoPoco Read(int chave)
         {
-            Profissao lida = this.repo.Read(chave);
+            Profissao lida = this.genrepo.GetById(chave);
             ProfissaoPoco lidaPoco = this.ConvertTo(lida);
             return lidaPoco;
         }

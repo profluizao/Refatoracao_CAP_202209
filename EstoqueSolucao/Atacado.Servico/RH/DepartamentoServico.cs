@@ -1,7 +1,7 @@
 ﻿using Atacado.Servico.Base;
 using Atacado.DB.EF.Database;
 using Atacado.Poco.RH;
-using Atacado.Repositorio.RH;
+using Atacado.Repositorio.Base;
 using System.Linq.Expressions;
 
 using System;
@@ -16,16 +16,16 @@ namespace Atacado.Servico.RH
 {
     public class DepartamentoServico : BaseServico<DepartamentoPoco, Departamento>
     {
-        private DepartamentoRepo repo;
+        private GenericRepository<Departamento> genrepo;
 
         public DepartamentoServico() : base()
         {
-            this.repo = new DepartamentoRepo();
+            this.genrepo = new GenericRepository<Departamento>();
         }
         public override DepartamentoPoco Add(DepartamentoPoco poco)
         {
             Departamento nova = this.ConvertTo(poco);
-            Departamento criada = this.repo.Create(nova);
+            Departamento criada = this.genrepo.Insert(nova);
             return this.ConvertTo(criada);
         }
 
@@ -39,11 +39,11 @@ namespace Atacado.Servico.RH
             IQueryable<Departamento> query;
             if (predicate == null)
             {
-                query = this.repo.Read(null);
+                query = this.genrepo.Browseable(null);
             }
             else
             {
-                query = this.repo.Read(predicate);
+                query = this.genrepo.Browseable(predicate);
             }
 
             listaPoco = query.Select(dep =>
@@ -82,14 +82,14 @@ namespace Atacado.Servico.RH
 
         public override DepartamentoPoco Delete(int chave)
         {
-            Departamento del = this.repo.Delete(chave);
+            Departamento del = this.genrepo.Delete(chave);
             DepartamentoPoco delPoco = this.ConvertTo(del);
             return delPoco;
         }
 
         public override DepartamentoPoco Delete(DepartamentoPoco poco)
         {
-            Departamento del = this.repo.Delete(poco.DepartamentoId);
+            Departamento del = this.genrepo.Delete(poco.DepartamentoId);
             DepartamentoPoco delPoco = this.ConvertTo(del);
             return delPoco;
         }
@@ -97,14 +97,14 @@ namespace Atacado.Servico.RH
         public override DepartamentoPoco Edit(DepartamentoPoco poco)
         {
             Departamento editada = this.ConvertTo(poco);
-            Departamento alterada = this.repo.Update(editada);
+            Departamento alterada = this.genrepo.Update(editada);
             DepartamentoPoco alteradaPoco = this.ConvertTo(alterada);
             return alteradaPoco;
         }
 
         public override DepartamentoPoco Read(int chave)
         {
-            Departamento lida = this.repo.Read(chave);
+            Departamento lida = this.genrepo.GetById(chave);
             DepartamentoPoco lidaPoco = this.ConvertTo(lida);
             return lidaPoco;
         }
