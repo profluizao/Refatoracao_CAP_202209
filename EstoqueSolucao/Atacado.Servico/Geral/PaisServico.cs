@@ -1,6 +1,6 @@
 ﻿using Atacado.DB.EF.Database;
 using Atacado.Poco.Geral;
-using Atacado.Repositorio.Geral;
+using Atacado.Repositorio.Base;
 using Atacado.Servico.Base;
 using System;
 using System.Collections.Generic;
@@ -13,17 +13,17 @@ namespace Atacado.Servico.Geral
 {
     public class PaisServico : BaseServico<PaisPoco, Pais>
     {
-        private PaisRepo repo;
+        private GenericRepository<Pais> genrepo;
 
         public PaisServico() : base()
         {
-            this.repo = new PaisRepo();
+            this.genrepo = new GenericRepository<Pais>();
         }
 
         public override PaisPoco Add(PaisPoco poco)
         {
             Pais nova = this.ConvertTo(poco);
-            Pais criada = this.repo.Create(nova);
+            Pais criada = this.genrepo.Insert(nova);
             return this.ConvertTo(criada);
         }
 
@@ -37,11 +37,11 @@ namespace Atacado.Servico.Geral
             IQueryable<Pais> query;
             if (predicate == null)
             {
-                query = this.repo.Read(null);
+                query = this.genrepo.Browseable(null);
             }
             else
             {
-                query = this.repo.Read(predicate);
+                query = this.genrepo.Browseable(predicate);
             }
 
             listaPoco = query.Select(pai =>
@@ -83,14 +83,14 @@ namespace Atacado.Servico.Geral
 
         public override PaisPoco Delete(int chave)
         {
-            Pais del = this.repo.Delete(chave);
+            Pais del = this.genrepo.Delete(chave);
             PaisPoco delPoco = this.ConvertTo(del);
             return delPoco;
         }
 
         public override PaisPoco Delete(PaisPoco poco)
         {
-            Pais del = this.repo.Delete(poco.PaisId);
+            Pais del = this.genrepo.Delete(poco.PaisId);
             PaisPoco delPoco = this.ConvertTo(del);
             return delPoco;
         }
@@ -98,14 +98,14 @@ namespace Atacado.Servico.Geral
         public override PaisPoco Edit(PaisPoco poco)
         {
             Pais editada = this.ConvertTo(poco);
-            Pais alterada = this.repo.Update(editada);
+            Pais alterada = this.genrepo.Insert(editada);
             PaisPoco alteradaPoco = this.ConvertTo(alterada);
             return alteradaPoco;
         }
 
         public override PaisPoco Read(int chave)
         {
-            Pais lida = this.repo.Read(chave);
+            Pais lida = this.genrepo.GetById(chave);
             PaisPoco lidaPoco = this.ConvertTo(lida);
             return lidaPoco;
         }

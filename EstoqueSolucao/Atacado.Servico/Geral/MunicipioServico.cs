@@ -7,29 +7,29 @@ using System.Threading.Tasks;
 using Atacado.Servico.Base;
 using Atacado.DB.EF.Database;
 using Atacado.Poco.Estoque;
-using Atacado.Repositorio.Estoque;
+using Atacado.Repositorio.Base;
 using System.Linq.Expressions;
 using Atacado.Poco.Geral;
 using System.Net;
 using Atacado.Servico.Base;
 using Atacado.DB.EF.Database;
 using Atacado.Poco.Geral;
-using Atacado.Repositorio.Geral;
+
 
 namespace Atacado.Servico.Geral
 {
     public class MunicipioServico : BaseServico<MunicipioPoco, Municipio>
     {
-        private MunicipioRepo repo;
+        private GenericRepository<Municipio> genrepo;
 
         public MunicipioServico() : base()
         {
-            this.repo = new MunicipioRepo();
+            this.genrepo = new GenericRepository<Municipio>();
         }
         public override MunicipioPoco Add(MunicipioPoco poco)
         {
             Municipio nova = this.ConvertTo(poco);
-            Municipio criada = this.repo.Create(nova);
+            Municipio criada = this.genrepo.Insert(nova);
             return this.ConvertTo(criada);
         }
 
@@ -43,11 +43,11 @@ namespace Atacado.Servico.Geral
             IQueryable<Municipio> query;
             if (predicate == null)
             {
-                query = this.repo.Read(null);
+                query = this.genrepo.Browseable(null);
             }
             else
             {
-                query = this.repo.Read(predicate);
+                query = this.genrepo.Browseable(predicate);
             }
 
             listaPoco = query.Select(mun =>
@@ -108,14 +108,14 @@ namespace Atacado.Servico.Geral
 
         public override MunicipioPoco Delete(int chave)
         {
-            Municipio del = this.repo.Delete(chave);
+            Municipio del = this.genrepo.Delete(chave);
             MunicipioPoco delPoco = this.ConvertTo(del);
             return delPoco;
         }
 
         public override MunicipioPoco Delete(MunicipioPoco poco)
         {
-            Municipio del = this.repo.Delete(poco.CodigoMunicipio);
+            Municipio del = this.genrepo.Delete(poco.CodigoMunicipio);
             MunicipioPoco delPoco = this.ConvertTo(del);
             return delPoco;
         }
@@ -123,14 +123,14 @@ namespace Atacado.Servico.Geral
         public override MunicipioPoco Edit(MunicipioPoco poco)
         {
             Municipio editada = this.ConvertTo(poco);
-            Municipio alterada = this.repo.Update(editada);
+            Municipio alterada = this.genrepo.Insert(editada);
             MunicipioPoco alteradaPoco = this.ConvertTo(alterada);
             return alteradaPoco;
         }
 
         public override MunicipioPoco Read(int chave)
         {
-            Municipio lida = this.repo.Read(chave);
+            Municipio lida = this.genrepo.GetById(chave);
             MunicipioPoco lidaPoco = this.ConvertTo(lida);
             return lidaPoco;
         }
