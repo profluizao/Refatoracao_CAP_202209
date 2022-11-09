@@ -82,7 +82,7 @@ namespace AtacadoApi.Controllers
         /// Realiza a alteração de um registro através de uma instância
         /// </summary>
         /// <param name="poco">instância passada como parâmetro</param>
-        /// <returns></returns
+        /// <returns></returns>
         [HttpPut]
         public ActionResult<EstadoPoco> Put([FromBody] EstadoPoco poco)
         {
