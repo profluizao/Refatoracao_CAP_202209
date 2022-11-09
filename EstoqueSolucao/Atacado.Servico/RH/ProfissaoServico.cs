@@ -1,7 +1,6 @@
 ﻿using Atacado.Servico.Base;
 using Atacado.DB.EF.Database;
 using Atacado.Poco.RH;
-using Atacado.Repositorio.RH;
 using System;
 using System.Collections.Generic;
 using System.Linq;

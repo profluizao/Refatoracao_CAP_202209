@@ -11,9 +11,8 @@ using Atacado.Repositorio.Base;
 using System.Linq.Expressions;
 using Atacado.Poco.Geral;
 using System.Net;
-using Atacado.Servico.Base;
-using Atacado.DB.EF.Database;
-using Atacado.Poco.Geral;
+
+
 
 
 namespace Atacado.Servico.Geral
@@ -123,7 +122,7 @@ namespace Atacado.Servico.Geral
         public override MunicipioPoco Edit(MunicipioPoco poco)
         {
             Municipio editada = this.ConvertTo(poco);
-            Municipio alterada = this.genrepo.Insert(editada);
+            Municipio alterada = this.genrepo.Update(editada);
             MunicipioPoco alteradaPoco = this.ConvertTo(alterada);
             return alteradaPoco;
         }

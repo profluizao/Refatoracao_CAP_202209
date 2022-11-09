@@ -98,7 +98,7 @@ namespace Atacado.Servico.Geral
         public override PaisPoco Edit(PaisPoco poco)
         {
             Pais editada = this.ConvertTo(poco);
-            Pais alterada = this.genrepo.Insert(editada);
+            Pais alterada = this.genrepo.Update(editada);
             PaisPoco alteradaPoco = this.ConvertTo(alterada);
             return alteradaPoco;
         }

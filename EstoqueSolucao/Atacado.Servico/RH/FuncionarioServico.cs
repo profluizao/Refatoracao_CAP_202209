@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 using Atacado.Servico.Base;
 using Atacado.DB.EF.Database;
 using Atacado.Poco.RH;
-using Atacado.Repositorio.RH;
-using System.Linq.Expressions;
 using Atacado.Repositorio.Base;
+using System.Linq.Expressions;
 
 namespace Atacado.Servico.RH
 {
