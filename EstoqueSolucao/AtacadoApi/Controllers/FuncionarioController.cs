@@ -71,7 +71,7 @@ namespace AtacadoApi.Controllers
             try
             {
                 FuncionarioPoco novo = this.servico.Add(poco);
-                return Ok(poco);
+                return Ok(novo);
             }
             catch(Exception ex)
             {

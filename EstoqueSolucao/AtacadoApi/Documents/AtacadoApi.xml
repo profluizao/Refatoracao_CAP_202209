@@ -177,7 +177,13 @@
             <param name="poco">instância passada como parâmetro</param>
             <returns></returns>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:AtacadoApi.Controllers.EstadoController.Put(Atacado.Poco.Geral.EstadoPoco)" -->
+        <member name="M:AtacadoApi.Controllers.EstadoController.Put(Atacado.Poco.Geral.EstadoPoco)">
+            <summary>
+            Realiza a alteração de um registro através de uma instância
+            </summary>
+            <param name="poco">instância passada como parâmetro</param>
+            <returns></returns>
+        </member>
         <member name="M:AtacadoApi.Controllers.EstadoController.DeleteById(System.Int32)">
             <summary>
             Realiza a exclusão de um registro de acordo com a chave informada
