@@ -9,33 +9,18 @@ using Atacado.DB.EF.Database;
 using Atacado.Poco.RH;
 using Atacado.Repositorio.Base;
 using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.EntityFrameworkCore.Query;
+using Atacado.Poco.Estoque;
 
 namespace Atacado.Servico.RH
 {
-    public class FuncionarioServico : BaseServico<FuncionarioPoco, Funcionario>
+    public class FuncionarioServico : GenericService<Funcionario, FuncionarioPoco>
     {
-        private GenericRepository<Funcionario> genrepo;
-
-        public FuncionarioServico() : base()
+        public override List<FuncionarioPoco> Consultar(Expression<Func<Funcionario, bool>>? predicate = null)
         {
-            this.genrepo = new GenericRepository<Funcionario>();
-        }
-        public override FuncionarioPoco Add(FuncionarioPoco poco)
-        {
-            Funcionario nova = this.ConvertTo(poco);
-            Funcionario criada = this.genrepo.Insert(nova);
-            return this.ConvertTo(criada);
-        }
-        public override List<FuncionarioPoco> Browse()
-        {
-            return this.Browse(null);
-        }
-
-        public override List<FuncionarioPoco> Browse(Expression<Func<Funcionario, bool>> predicate = null)
-        {
-            List<FuncionarioPoco> listaPoco;
             IQueryable<Funcionario> query;
-            if (predicate == null)
+            if(predicate == null)
             {
                 query = this.genrepo.Browseable(null);
             }
@@ -43,8 +28,64 @@ namespace Atacado.Servico.RH
             {
                 query = this.genrepo.Browseable(predicate);
             }
+            return this.ConverterPara(query);
+        }
 
-            listaPoco = query.Select(fun =>
+        public override List<FuncionarioPoco> Listar(int? take = null, int? skip = null)
+        {
+            IQueryable<Funcionario> query;
+            if(skip == null)
+            {
+                query = this.genrepo.GetAll();
+            }
+            else
+            {
+                query = this.genrepo.GetAll(take, skip);
+            }
+            return this.ConverterPara(query);
+        }
+
+        public override FuncionarioPoco ConverterPara(Funcionario obj)
+        {
+            return new FuncionarioPoco()
+            {
+                FuncionarioId = obj.FuncionarioId,
+                Matricula = obj.Matricula,
+                Nome = obj.Nome,
+                Sobrenome = obj.Sobrenome,
+                Sexo = obj.Sexo,
+                DataNascimento = obj.DataNascimento,
+                Email = obj.Email,
+                Ctps = obj.Ctps,
+                CtpsNum = obj.CtpsNum,
+                CtpsSerie = obj.CtpsSerie,
+                DataAdmissao = obj.DataAdmissao,
+                Ativo = obj.Ativo
+            };
+        }
+
+        public override Funcionario ConverterPara(FuncionarioPoco obj)
+        {
+            return new Funcionario()
+            {
+                FuncionarioId = obj.FuncionarioId,
+                Matricula = obj.Matricula,
+                Nome = obj.Nome,
+                Sobrenome = obj.Sobrenome,
+                Sexo = obj.Sexo,
+                DataNascimento = obj.DataNascimento,
+                Email = obj.Email,
+                Ctps = obj.Ctps,
+                CtpsNum = obj.CtpsNum,
+                CtpsSerie = obj.CtpsSerie,
+                DataAdmissao = obj.DataAdmissao,
+                Ativo = obj.Ativo
+            };
+        }
+
+        public override List<FuncionarioPoco> ConverterPara(IQueryable<Funcionario> query)
+        {
+            return query.Select(fun =>
                     new FuncionarioPoco()
                     {
                         FuncionarioId = fun.FuncionarioId,
@@ -60,74 +101,8 @@ namespace Atacado.Servico.RH
                         DataAdmissao = fun.DataAdmissao,
                         Ativo = fun.Ativo
                     }
-                )
-                .ToList();
-            return listaPoco;
-        }
-        public override FuncionarioPoco ConvertTo(Funcionario dominio)
-        {
-            return new FuncionarioPoco()
-            {
-                FuncionarioId = dominio.FuncionarioId,
-                Matricula = dominio.Matricula,
-                Nome = dominio.Nome,
-                Sobrenome = dominio.Sobrenome,
-                Sexo = dominio.Sexo,
-                DataNascimento = dominio.DataNascimento,
-                Email = dominio.Email,
-                Ctps = dominio.Ctps,
-                CtpsNum = dominio.CtpsNum,
-                CtpsSerie = dominio.CtpsSerie,
-                DataAdmissao = dominio.DataAdmissao,
-                Ativo = dominio.Ativo
-            };
-        }
-
-        public override Funcionario ConvertTo(FuncionarioPoco poco)
-        {
-            return new Funcionario()
-            {
-                FuncionarioId = poco.FuncionarioId,
-                Matricula = poco.Matricula,
-                Nome = poco.Nome,
-                Sobrenome = poco.Sobrenome,
-                Sexo = poco.Sexo,
-                DataNascimento = poco.DataNascimento,
-                Email = poco.Email,
-                Ctps = poco.Ctps,
-                CtpsNum = poco.CtpsNum,
-                CtpsSerie = poco.CtpsSerie,
-                Ativo = poco.Ativo
-            };
-        }
-
-        public override FuncionarioPoco Delete(int chave)
-        {
-            Funcionario del = this.genrepo.Delete(chave);
-            FuncionarioPoco delPoco = this.ConvertTo(del);
-            return delPoco;
-        }
-
-        public override FuncionarioPoco Delete(FuncionarioPoco poco)
-        {
-            Funcionario del = this.genrepo.Delete(poco.FuncionarioId);
-            FuncionarioPoco delPoco = this.ConvertTo(del);
-            return delPoco;
-        }
-
-        public override FuncionarioPoco Edit(FuncionarioPoco poco)
-        {
-            Funcionario editada = this.ConvertTo(poco);
-            Funcionario alterada = this.genrepo.Update(editada);
-            FuncionarioPoco alteradaPoco = this.ConvertTo(alterada);
-            return alteradaPoco;
-        }
-
-        public override FuncionarioPoco Read(int chave)
-        {
-            Funcionario lida = this.genrepo.GetById(chave);
-            FuncionarioPoco lidaPoco = this.ConvertTo(lida);
-            return lidaPoco;
+            )
+            .ToList();
         }
     }
 }

@@ -1,38 +1,24 @@
-﻿using Atacado.Servico.Base;
-using Atacado.DB.EF.Database;
-using Atacado.Poco.Geral;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+
+using Atacado.Servico.Base;
+using Atacado.DB.EF.Database;
+using Atacado.Poco.Estoque;
 using Atacado.Repositorio.Base;
+using System.Linq.Expressions;
+using System.Runtime.CompilerServices;
+using System.Globalization;
+using Atacado.Poco.Geral;
 
 namespace Atacado.Servico.Geral
 {
-    public class ClienteServico : BaseServico<ClientePoco, Cliente>
+    public class ClienteServico : GenericService<Cliente, ClientePoco>
     {
-        private GenericRepository<Cliente> genrepo;
-
-        public ClienteServico() : base()
+        public override List<ClientePoco> Consultar(Expression<Func<Cliente, bool>>? predicate = null)
         {
-            this.genrepo = new GenericRepository<Cliente>();
-        }
-        public override ClientePoco Add(ClientePoco poco)
-        {
-            Cliente nova = this.ConvertTo(poco);
-            Cliente criada = this.genrepo.Insert(nova);
-            return this.ConvertTo(criada);
-        }
-
-        public override List<ClientePoco> Browse()
-        {
-            return this.Browse(null);
-        }
-        public override List<ClientePoco> Browse(Expression<Func<Cliente, bool>> predicate = null)
-        {
-            List<ClientePoco> listaPoco;
             IQueryable<Cliente> query;
             if (predicate == null)
             {
@@ -42,8 +28,7 @@ namespace Atacado.Servico.Geral
             {
                 query = this.genrepo.Browseable(predicate);
             }
-
-            listaPoco = query.Select(cli =>
+            List<ClientePoco> listaPoco = query.Select(cli =>
                     new ClientePoco()
                     {
                         Codigo = cli.Codigo,
@@ -60,77 +45,49 @@ namespace Atacado.Servico.Geral
                         DataAlteracao = cli.DataAlteracao,
                         DataExclusao = cli.DataExclusao
                     }
-                )
-                .ToList();
+            )
+            .ToList();
             return listaPoco;
         }
-        public override ClientePoco ConvertTo(Cliente dominio)
+
+        public override ClientePoco ConverterPara(Cliente obj)
         {
             return new ClientePoco()
             {
-                Codigo=dominio.Codigo,
-                Nome = dominio.Nome,
-                RazaoSocial = dominio.RazaoSocial,
-                NomeFantasia = dominio.NomeFantasia,
-                Documento = dominio.Documento,
-                Telefone = dominio.Telefone,
-                Email = dominio.Email,
-                TipoPessoa = dominio.TipoPessoa,
-                Endereco = dominio.Endereco,
-                Ativo = dominio.Ativo,
-                DataInclusao = dominio.DataInclusao,
-                DataAlteracao = dominio.DataAlteracao,
-                DataExclusao = dominio.DataExclusao
+                Codigo = obj.Codigo,
+                Nome = obj.Nome,
+                RazaoSocial = obj.RazaoSocial,
+                NomeFantasia = obj.NomeFantasia,
+                Documento = obj.Documento,
+                Telefone = obj.Telefone,
+                Email = obj.Email,
+                TipoPessoa = obj.TipoPessoa,
+                Endereco = obj.Endereco,
+                Ativo = obj.Ativo,
+                DataInclusao = obj.DataInclusao,
+                DataAlteracao = obj.DataAlteracao,
+                DataExclusao = obj.DataExclusao
             };
         }
 
-        public override Cliente ConvertTo(ClientePoco poco)
+        public override Cliente ConverterPara(ClientePoco obj)
         {
             return new Cliente()
             {
-                Codigo = poco.Codigo,
-                Nome = poco.Nome,
-                RazaoSocial = poco.RazaoSocial,
-                NomeFantasia = poco.NomeFantasia,
-                Documento = poco.Documento,
-                Telefone = poco.Telefone,
-                Email = poco.Email,
-                TipoPessoa = poco.TipoPessoa,
-                Endereco = poco.Endereco,
-                Ativo = poco.Ativo,
-                DataInclusao = poco.DataInclusao,
-                DataAlteracao = poco.DataAlteracao,
-                DataExclusao = poco.DataExclusao
+                Codigo = obj.Codigo,
+                Nome = obj.Nome,
+                RazaoSocial = obj.RazaoSocial,
+                NomeFantasia = obj.NomeFantasia,
+                Documento = obj.Documento,
+                Telefone = obj.Telefone,
+                Email = obj.Email,
+                TipoPessoa = obj.TipoPessoa,
+                Endereco = obj.Endereco,
+                Ativo = obj.Ativo,
+                DataInclusao = obj.DataInclusao,
+                DataAlteracao = obj.DataAlteracao,
+                DataExclusao = obj.DataExclusao
             };
-        }
-
-        public override ClientePoco Delete(int chave)
-        {
-            Cliente del = this.genrepo.Delete(chave);
-            ClientePoco delPoco = this.ConvertTo(del);
-            return delPoco;
-        }
-
-        public override ClientePoco Delete(ClientePoco poco)
-        {
-            Cliente del = this.genrepo.Delete(poco.Codigo);
-            ClientePoco delPoco = this.ConvertTo(del);
-            return delPoco;
-        }
-
-        public override ClientePoco Edit(ClientePoco poco)
-        {
-            Cliente editada = this.ConvertTo(poco);
-            Cliente alterada = this.genrepo.Update(editada);
-            ClientePoco alteradaPoco = this.ConvertTo(alterada);
-            return alteradaPoco;
-        }
-
-        public override ClientePoco Read(int chave)
-        {
-            Cliente lida = this.genrepo.GetById(chave);
-            ClientePoco lidaPoco = this.ConvertTo(lida);
-            return lidaPoco;
         }
     }
 }

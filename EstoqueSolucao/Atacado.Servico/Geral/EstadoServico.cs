@@ -12,29 +12,10 @@ using Atacado.Servico.Base;
 
 namespace Atacado.Servico.Geral
 {
-    public class EstadoServico : BaseServico<EstadoPoco, Estado>
+    public class EstadoServico : GenericService<Estado, EstadoPoco>
     {
-        private GenericRepository<Estado> genrepo;
-
-        public EstadoServico() : base()
+        public override List<EstadoPoco> Consultar(Expression<Func<Estado, bool>>? predicate = null)
         {
-            this.genrepo = new GenericRepository<Estado>();
-        }
-
-        public override EstadoPoco Add(EstadoPoco poco)
-        {
-            Estado nova = this.ConvertTo(poco);
-            Estado criada = this.genrepo.Insert(nova);
-            return this.ConvertTo(criada);
-        }
-
-        public override List<EstadoPoco> Browse()
-        {
-            return this.Browse(null);
-        }
-        public override List<EstadoPoco> Browse(Expression<Func<Estado, bool>> predicate = null)
-        {
-            List<EstadoPoco> listaPoco;
             IQueryable<Estado> query;
             if (predicate == null)
             {
@@ -44,65 +25,36 @@ namespace Atacado.Servico.Geral
             {
                 query = this.genrepo.Browseable(predicate);
             }
-
-            listaPoco = query.Select(est =>
-                    new EstadoPoco()
-                    {
-                        CodigoUf = est.CodigoUf,
-                        SiglaUf = est.SiglaUf,
-                        DescricaoUf = est.DescricaoUf
-                    }
-                )
-                .ToList();
+            List<EstadoPoco> listaPoco = query.Select(est =>
+                new EstadoPoco()
+                {
+                    CodigoUf = est.CodigoUf,
+                    SiglaUf = est.SiglaUf,
+                    DescricaoUf = est.DescricaoUf
+                }
+            )
+            .ToList();
             return listaPoco;
         }
-        public override EstadoPoco ConvertTo(Estado dominio)
+
+        public override EstadoPoco ConverterPara(Estado obj)
         {
             return new EstadoPoco()
             {
-                CodigoUf = dominio.CodigoUf,
-                SiglaUf = dominio.SiglaUf,
-                DescricaoUf = dominio.DescricaoUf
+                CodigoUf = obj.CodigoUf,
+                SiglaUf = obj.SiglaUf,
+                DescricaoUf = obj.DescricaoUf
             };
         }
 
-        public override Estado ConvertTo(EstadoPoco poco)
+        public override Estado ConverterPara(EstadoPoco obj)
         {
             return new Estado()
             {
-                CodigoUf = poco.CodigoUf,
-                SiglaUf = poco.SiglaUf,
-                DescricaoUf = poco.DescricaoUf
+                CodigoUf = obj.CodigoUf,
+                SiglaUf = obj.SiglaUf,
+                DescricaoUf = obj.DescricaoUf
             };
-        }
-
-        public override EstadoPoco Delete(int chave)
-        {
-            Estado del = this.genrepo.Delete(chave);
-            EstadoPoco delPoco = this.ConvertTo(del);
-            return delPoco;
-        }
-
-        public override EstadoPoco Delete(EstadoPoco poco)
-        {
-            Estado del = this.genrepo.Delete(poco.CodigoUf);
-            EstadoPoco delPoco = this.ConvertTo(del);
-            return delPoco;
-        }
-
-        public override EstadoPoco Edit(EstadoPoco poco)
-        {
-            Estado editada = this.ConvertTo(poco);
-            Estado alterada = this.genrepo.Update(editada);
-            EstadoPoco alteradaPoco = this.ConvertTo(alterada);
-            return alteradaPoco;
-        }
-
-        public override EstadoPoco Read(int chave)
-        {
-            Estado lida = this.genrepo.GetById(chave);
-            EstadoPoco lidaPoco = this.ConvertTo(lida);
-            return lidaPoco;
         }
     }
 }
