@@ -26,13 +26,13 @@ namespace Atacado.Servico.Estoque
                 query = this.genrepo.Browseable(predicate);
             }
             List<CategoriaPoco> listaPoco = query.Select(cat =>
-            new CategoriaPoco()
-            {
-                Codigo = cat.Codigo,
-                Descricao = cat.Descricao,
-                Ativo = cat.Ativo,
-                DataInsert = cat.DataInsert
-            }
+                new CategoriaPoco()
+                {
+                    Codigo = cat.Codigo,
+                    Descricao = cat.Descricao,
+                    Ativo = cat.Ativo,
+                    DataInsert = cat.DataInsert
+                }
             )
             .ToList();
           return listaPoco;

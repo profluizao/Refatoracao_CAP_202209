@@ -11,30 +11,12 @@ using Atacado.Repositorio.Base;
 
 namespace Atacado.Servico.RH
 {
-    public class ProfissaoServico : BaseServico<ProfissaoPoco, Profissao>
+    public class ProfissaoServico : GenericService<Profissao, ProfissaoPoco>
     {
-        private GenericRepository<Profissao> genrepo;
-
-        public ProfissaoServico() : base()
+        public override List<ProfissaoPoco> Consultar(Expression<Func<Profissao, bool>>? predicate = null)
         {
-            this.genrepo = new GenericRepository<Profissao>();
-        }
-        public override ProfissaoPoco Add(ProfissaoPoco poco)
-        {
-            Profissao nova = this.ConvertTo(poco);
-            Profissao criada = this.genrepo.Insert(nova);
-            return this.ConvertTo(criada);
-        }
-
-        public override List<ProfissaoPoco> Browse()
-        {
-            return this.Browse(null);
-        }
-        public override List<ProfissaoPoco> Browse(Expression<Func<Profissao, bool>> predicate = null)
-        {
-            List<ProfissaoPoco> listaPoco;
             IQueryable<Profissao> query;
-            if (predicate == null)
+            if(predicate == null)
             {
                 query = this.genrepo.Browseable(null);
             }
@@ -42,8 +24,7 @@ namespace Atacado.Servico.RH
             {
                 query = this.genrepo.Browseable(predicate);
             }
-
-            listaPoco = query.Select(pro =>
+            List<ProfissaoPoco> listaPoco = query.Select(pro =>
                     new ProfissaoPoco()
                     {
                         ProfissaoId = pro.ProfissaoId,
@@ -55,55 +36,27 @@ namespace Atacado.Servico.RH
                 .ToList();
             return listaPoco;
         }
-        public override ProfissaoPoco ConvertTo(Profissao dominio)
-        {
-            return new ProfissaoPoco()
-            {
-                ProfissaoId = dominio.ProfissaoId,
-                Descricao = dominio.Descricao,
-                DataInsert = dominio.DataInsert,
-                Ativo = dominio.Ativo,
-            };
-        }
 
-        public override Profissao ConvertTo(ProfissaoPoco poco)
+        public override Profissao ConverterPara(ProfissaoPoco obj)
         {
             return new Profissao()
             {
-                ProfissaoId = poco.ProfissaoId,
-                Descricao = poco.Descricao,
-                DataInsert = poco.DataInsert,
-                Ativo = poco.Ativo,
+                ProfissaoId = obj.ProfissaoId,
+                Descricao = obj.Descricao,
+                DataInsert = obj.DataInsert,
+                Ativo = obj.Ativo,
             };
         }
 
-        public override ProfissaoPoco Delete(int chave)
+        public override ProfissaoPoco ConverterPara(Profissao obj)
         {
-            Profissao del = this.genrepo.Delete(chave);
-            ProfissaoPoco delPoco = this.ConvertTo(del);
-            return delPoco;
-        }
-
-        public override ProfissaoPoco Delete(ProfissaoPoco poco)
-        {
-            Profissao del = this.genrepo.Delete(poco.ProfissaoId);
-            ProfissaoPoco delPoco = this.ConvertTo(del);
-            return delPoco;
-        }
-
-        public override ProfissaoPoco Edit(ProfissaoPoco poco)
-        {
-            Profissao editada = this.ConvertTo(poco);
-            Profissao alterada = this.genrepo.Update(editada);
-            ProfissaoPoco alteradaPoco = this.ConvertTo(alterada);
-            return alteradaPoco;
-        }
-
-        public override ProfissaoPoco Read(int chave)
-        {
-            Profissao lida = this.genrepo.GetById(chave);
-            ProfissaoPoco lidaPoco = this.ConvertTo(lida);
-            return lidaPoco;
+            return new ProfissaoPoco()
+            {
+                ProfissaoId = obj.ProfissaoId,
+                Descricao = obj.Descricao,
+                DataInsert = obj.DataInsert,
+                Ativo = obj.Ativo,
+            };
         }
     }
 }
