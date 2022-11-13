@@ -11,7 +11,7 @@ namespace Atacado.Repositorio.Base
     {
         IQueryable<T> Browseable(Expression<Func<T, bool>> predicate = null);
 
-        IEnumerable<T> GetAll(int? take = null, int? skip = null);
+        IQueryable<T> GetAll(int? take = null, int? skip = null);
 
         T GetById(object id);
 

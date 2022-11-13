@@ -13,32 +13,12 @@ using Atacado.Poco.Geral;
 using System.Net;
 
 
-
-
 namespace Atacado.Servico.Geral
 {
-    public class MunicipioServico : BaseServico<MunicipioPoco, Municipio>
+    public class MunicipioServico : GenericService<Municipio, MunicipioPoco>
     {
-        private GenericRepository<Municipio> genrepo;
-
-        public MunicipioServico() : base()
+        public override List<MunicipioPoco> Consultar(Expression<Func<Municipio, bool>>? predicate = null)
         {
-            this.genrepo = new GenericRepository<Municipio>();
-        }
-        public override MunicipioPoco Add(MunicipioPoco poco)
-        {
-            Municipio nova = this.ConvertTo(poco);
-            Municipio criada = this.genrepo.Insert(nova);
-            return this.ConvertTo(criada);
-        }
-
-        public override List<MunicipioPoco> Browse()
-        {
-            return this.Browse(null);
-        }
-        public override List<MunicipioPoco> Browse(Expression<Func<Municipio, bool>> predicate = null)
-        {
-            List<MunicipioPoco> listaPoco;
             IQueryable<Municipio> query;
             if (predicate == null)
             {
@@ -48,28 +28,24 @@ namespace Atacado.Servico.Geral
             {
                 query = this.genrepo.Browseable(predicate);
             }
-
-            listaPoco = query.Select(mun =>
-                    new MunicipioPoco()
-                    {
-                        CodigoMunicipio = mun.CodigoMunicipio,
-                        NomeMunicipio = mun.NomeMunicipio,
-                        CodigoIbge6 = mun.CodigoIbge6,
-                        CodigoIbge7 = mun.CodigoIbge7,
-                        Cep = mun.Cep,
-                        CodigoUf = mun.CodigoUf,
-                        SiglaUf = mun.SiglaUf,
-                        Regiao = mun.Regiao,
-                        Populacao = mun.Populacao,
-                        Porte = mun.Porte,
-                        DataInclusao = mun.DataInclusao
-                    }
-                )
-                .ToList();
-            return listaPoco;
+            return this.ConverterPara(query);
         }
 
-        public override MunicipioPoco ConvertTo(Municipio dominio)
+        public override List<MunicipioPoco> Listar(int? take = null, int? skip = null)
+        {
+            IQueryable<Municipio> query;
+            if (skip == null)
+            {
+                query = this.genrepo.GetAll();
+            }
+            else
+            {
+                query = this.genrepo.GetAll(take, skip);
+            }
+            return this.ConverterPara(query);
+        }
+
+        public override MunicipioPoco ConverterPara(Municipio dominio)
         {
             return new MunicipioPoco()
             {
@@ -87,7 +63,7 @@ namespace Atacado.Servico.Geral
             };
         }
 
-        public override Municipio ConvertTo(MunicipioPoco poco)
+        public override Municipio ConverterPara(MunicipioPoco poco)
         {
             return new Municipio()
             {
@@ -105,33 +81,25 @@ namespace Atacado.Servico.Geral
             };
         }
 
-        public override MunicipioPoco Delete(int chave)
+        public override List<MunicipioPoco> ConverterPara(IQueryable<Municipio> query)
         {
-            Municipio del = this.genrepo.Delete(chave);
-            MunicipioPoco delPoco = this.ConvertTo(del);
-            return delPoco;
-        }
-
-        public override MunicipioPoco Delete(MunicipioPoco poco)
-        {
-            Municipio del = this.genrepo.Delete(poco.CodigoMunicipio);
-            MunicipioPoco delPoco = this.ConvertTo(del);
-            return delPoco;
-        }
-
-        public override MunicipioPoco Edit(MunicipioPoco poco)
-        {
-            Municipio editada = this.ConvertTo(poco);
-            Municipio alterada = this.genrepo.Update(editada);
-            MunicipioPoco alteradaPoco = this.ConvertTo(alterada);
-            return alteradaPoco;
-        }
-
-        public override MunicipioPoco Read(int chave)
-        {
-            Municipio lida = this.genrepo.GetById(chave);
-            MunicipioPoco lidaPoco = this.ConvertTo(lida);
-            return lidaPoco;
+            return query.Select(mun =>
+                    new MunicipioPoco()
+                    {
+                        CodigoMunicipio = mun.CodigoMunicipio,
+                        NomeMunicipio = mun.NomeMunicipio,
+                        CodigoIbge6 = mun.CodigoIbge6,
+                        CodigoIbge7 = mun.CodigoIbge7,
+                        Cep = mun.Cep,
+                        CodigoUf = mun.CodigoUf,
+                        SiglaUf = mun.SiglaUf,
+                        Regiao = mun.Regiao,
+                        Populacao = mun.Populacao,
+                        Porte = mun.Porte,
+                        DataInclusao = mun.DataInclusao
+                    }
+                )
+                .ToList();
         }
     }
 }

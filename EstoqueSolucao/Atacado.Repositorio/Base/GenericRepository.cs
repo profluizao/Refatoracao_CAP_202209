@@ -33,15 +33,15 @@ namespace Atacado.Repositorio.Base
             }
         }
 
-        public IEnumerable<TDominio> GetAll(int? take = null, int? skip = null)
+        public IQueryable<TDominio> GetAll(int? take = null, int? skip = null)
         {
             if (skip == null)
             {
-                return this.table.ToList();
+                return this.table;
             }
             else
             {
-                return this.table.Skip(skip.Value).Take(take.Value).ToList();
+                return this.table.Skip(skip.Value).Take(take.Value);
             }
         }
 
