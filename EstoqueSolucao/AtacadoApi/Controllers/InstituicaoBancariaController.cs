@@ -32,7 +32,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                List<InstituicaoBancariaPoco> lista = this.servico.Browse();
+                List<InstituicaoBancariaPoco> lista = this.servico.Listar();
                 return Ok(lista);
             }
             catch(Exception ex)
@@ -51,7 +51,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                InstituicaoBancariaPoco poco = this.servico.Read(chave);
+                InstituicaoBancariaPoco poco = this.servico.PesquisarPorChave(chave);
                 return Ok(poco);
             }
             catch(Exception ex)
@@ -70,7 +70,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                InstituicaoBancariaPoco novoPoco = this.servico.Add(poco);
+                InstituicaoBancariaPoco novoPoco = this.servico.Inserir(poco);
                 return Ok(novoPoco);
             }
             catch(Exception ex)
@@ -89,7 +89,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                InstituicaoBancariaPoco novoPoco = this.servico.Edit(poco);
+                InstituicaoBancariaPoco novoPoco = this.servico.Alterar(poco);
                 return Ok(novoPoco);
             }
             catch(Exception ex)
@@ -108,7 +108,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                InstituicaoBancariaPoco delPoco = this.servico.Delete(chave);
+                InstituicaoBancariaPoco delPoco = this.servico.Excluir(chave);
                 return Ok(delPoco);
             }
             catch(Exception ex)
@@ -127,7 +127,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                InstituicaoBancariaPoco delPoco = this.servico.Delete(poco);
+                InstituicaoBancariaPoco delPoco = this.servico.Excluir(poco.CodigoBanco);
                 return Ok(delPoco);
             }
             catch(Exception ex)

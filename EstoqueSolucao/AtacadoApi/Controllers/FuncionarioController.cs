@@ -27,11 +27,11 @@ namespace AtacadoApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public ActionResult<List<FuncionarioPoco>> GetAll()
+        public ActionResult<List<FuncionarioPoco>> GetAll(int? take = null, int? skip = null)
         {
             try
             {
-                List<FuncionarioPoco> lista = this.servico.Browse();
+                List<FuncionarioPoco> lista = this.servico.Listar(take, skip);
                 return Ok(lista);
             }
             catch(Exception ex)
@@ -51,7 +51,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                FuncionarioPoco poco = this.servico.Read(chave);
+                FuncionarioPoco poco = this.servico.PesquisarPorChave(chave);
                 return Ok(poco);
             }
             catch(Exception ex)
@@ -70,7 +70,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                FuncionarioPoco novo = this.servico.Add(poco);
+                FuncionarioPoco novo = this.servico.Inserir(poco);
                 return Ok(novo);
             }
             catch(Exception ex)
@@ -89,7 +89,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                FuncionarioPoco atPoco = this.servico.Edit(poco);
+                FuncionarioPoco atPoco = this.servico.Alterar(poco);
                 return Ok(atPoco);
             }
             catch (Exception ex)
@@ -108,7 +108,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                FuncionarioPoco delPoco = this.servico.Delete(chave);
+                FuncionarioPoco delPoco = this.servico.Excluir(chave);
                 return Ok(delPoco);
             }
             catch (Exception ex)
@@ -128,7 +128,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                FuncionarioPoco delPoco = this.servico.Delete(poco);
+                FuncionarioPoco delPoco = this.servico.Excluir(poco.FuncionarioId);
                 return Ok(delPoco);
             }
             catch (Exception ex)
