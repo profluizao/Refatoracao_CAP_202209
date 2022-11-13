@@ -12,29 +12,10 @@ using Atacado.Repositorio.Base;
 
 namespace Atacado.Servico.Estoque
 {
-    public class CategoriaServico : BaseServico<CategoriaPoco, Categoria>
+    public class CategoriaServico : GenericService<Categoria, CategoriaPoco>
     {
-        private GenericRepository<Categoria> genrepo;
-
-        public CategoriaServico() : base()
+        public override List<CategoriaPoco> Consultar(Expression<Func<Categoria, bool>>? predicate = null)
         {
-            this.genrepo = new GenericRepository<Categoria>();
-        }
-        public override CategoriaPoco Add(CategoriaPoco poco)
-        {
-            Categoria nova = this.ConvertTo(poco);
-            Categoria criada = this.genrepo.Insert(nova);
-            return this.ConvertTo(criada);
-        }
-
-        public override List<CategoriaPoco> Browse()
-        {
-            return this.Browse(null);
-        }
-
-        public override List<CategoriaPoco> Browse(Expression<Func<Categoria, bool>> predicate = null)
-        {
-            List<CategoriaPoco> listaPoco;
             IQueryable<Categoria> query;
             if (predicate == null)
             {
@@ -44,69 +25,39 @@ namespace Atacado.Servico.Estoque
             {
                 query = this.genrepo.Browseable(predicate);
             }
-
-            listaPoco = query.Select(cat =>
-                    new CategoriaPoco()
-                    {
-                        Codigo = cat.Codigo,
-                        Descricao = cat.Descricao,
-                        Ativo = cat.Ativo,
-                        DataInsert = cat.DataInsert
-                    }
-                )
-                .ToList();
-            return listaPoco;
+            List<CategoriaPoco> listaPoco = query.Select(cat =>
+            new CategoriaPoco()
+            {
+                Codigo = cat.Codigo,
+                Descricao = cat.Descricao,
+                Ativo = cat.Ativo,
+                DataInsert = cat.DataInsert
+            }
+            )
+            .ToList();
+          return listaPoco;
         }
 
-        public override CategoriaPoco ConvertTo(Categoria dominio)
+        public override CategoriaPoco ConverterPara(Categoria obj)
         {
             return new CategoriaPoco()
             {
-                Codigo = dominio.Codigo, 
-                Descricao = dominio.Descricao, 
-                Ativo = dominio.Ativo,
-                DataInsert = dominio.DataInsert
+                Codigo = obj.Codigo,
+                Descricao = obj.Descricao,
+                Ativo = obj.Ativo,
+                DataInsert = obj.DataInsert
             };
         }
 
-        public override Categoria ConvertTo(CategoriaPoco poco)
+        public override Categoria ConverterPara(CategoriaPoco obj)
         {
             return new Categoria()
             {
-                Codigo = poco.Codigo,
-                Descricao = poco.Descricao,
-                Ativo = poco.Ativo,
-                DataInsert = poco.DataInsert
+                Codigo = obj.Codigo,
+                Descricao = obj.Descricao,
+                Ativo = obj.Ativo,
+                DataInsert = obj.DataInsert
             };
-        }
-
-        public override CategoriaPoco Delete(int chave)
-        {
-            Categoria del = this.genrepo.Delete(chave);
-            CategoriaPoco delPoco = this.ConvertTo(del);
-            return delPoco;
-        }
-
-        public override CategoriaPoco Delete(CategoriaPoco poco)
-        {
-            Categoria del = this.genrepo.Delete(poco.Codigo);
-            CategoriaPoco delPoco = this.ConvertTo(del);
-            return delPoco;
-        }
-
-        public override CategoriaPoco Edit(CategoriaPoco poco)
-        {
-            Categoria editada = this.ConvertTo(poco);
-            Categoria alterada = this.genrepo.Update(editada);
-            CategoriaPoco alteradaPoco = this.ConvertTo(alterada);
-            return alteradaPoco;
-        }
-
-        public override CategoriaPoco Read(int chave)
-        {
-            Categoria lida = this.genrepo.GetById(chave);
-            CategoriaPoco lidaPoco = this.ConvertTo(lida);
-            return lidaPoco;
         }
     }
 }
