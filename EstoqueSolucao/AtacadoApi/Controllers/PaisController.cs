@@ -33,7 +33,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                List<PaisPoco> result = this.servico.Browse();
+                List<PaisPoco> result = this.servico.Listar();
                 return Ok(result);
             }
             catch (Exception ex)
@@ -52,7 +52,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                PaisPoco result = this.servico.Read(chave);
+                PaisPoco result = this.servico.PesquisarPorChave(chave);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -71,7 +71,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                PaisPoco result = this.servico.Add(poco);
+                PaisPoco result = this.servico.Inserir(poco);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -90,7 +90,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                PaisPoco result = this.servico.Edit(poco);
+                PaisPoco result = this.servico.Alterar(poco);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -109,7 +109,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                PaisPoco result = this.servico.Delete(chave);
+                PaisPoco result = this.servico.Excluir(chave);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -128,7 +128,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                PaisPoco result = this.servico.Delete(poco);
+                PaisPoco result = this.servico.Excluir(poco.PaisId);
                 return Ok(result);
             }
             catch (Exception ex)

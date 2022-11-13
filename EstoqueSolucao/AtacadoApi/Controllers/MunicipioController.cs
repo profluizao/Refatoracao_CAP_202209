@@ -28,11 +28,11 @@ namespace AtacadoApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public ActionResult<List<MunicipioPoco>> GetAll()
+        public ActionResult<List<MunicipioPoco>> GetAll(int? take = null, int? skip = null)
         {
             try
             {
-                List<MunicipioPoco> lista = this.servico.Browse();
+                List<MunicipioPoco> lista = this.servico.Listar(take, skip);
                 return Ok(lista);
             }
             catch(Exception ex)
@@ -51,7 +51,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                MunicipioPoco poco = this.servico.Read(chave);
+                MunicipioPoco poco = this.servico.PesquisarPorChave(chave);
                 return Ok(poco);
             }
             catch(Exception ex)
@@ -70,7 +70,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                MunicipioPoco novoPoco = this.servico.Add(poco);
+                MunicipioPoco novoPoco = this.servico.Inserir(poco);
                 return Ok(novoPoco);
             }
             catch(Exception ex)
@@ -89,7 +89,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                MunicipioPoco novoPoco = this.servico.Edit(poco);
+                MunicipioPoco novoPoco = this.servico.Alterar(poco);
                 return Ok(novoPoco);
             }
             catch(Exception ex)
@@ -108,7 +108,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                MunicipioPoco delPoco = this.servico.Delete(chave);
+                MunicipioPoco delPoco = this.servico.Excluir(chave);
                 return Ok(delPoco);
             }
             catch(Exception ex)
@@ -127,7 +127,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                MunicipioPoco delPoco = this.servico.Delete(poco);
+                MunicipioPoco delPoco = this.servico.Excluir(poco.CodigoMunicipio);
                 return Ok(delPoco);
             }
             catch(Exception ex)
