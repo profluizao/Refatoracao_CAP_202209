@@ -7,35 +7,16 @@ using System.Linq.Expressions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Runtime.Intrinsics.Arm;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Atacado.Servico.RH
 {
-    public class DepartamentoServico : BaseServico<DepartamentoPoco, Departamento>
+    public class DepartamentoServico : GenericService<Departamento, DepartamentoPoco>
     {
-        private GenericRepository<Departamento> genrepo;
-
-        public DepartamentoServico() : base()
+        public override List<DepartamentoPoco> Consultar(Expression<Func<Departamento, bool>>? predicate = null)
         {
-            this.genrepo = new GenericRepository<Departamento>();
-        }
-        public override DepartamentoPoco Add(DepartamentoPoco poco)
-        {
-            Departamento nova = this.ConvertTo(poco);
-            Departamento criada = this.genrepo.Insert(nova);
-            return this.ConvertTo(criada);
-        }
-
-        public override List<DepartamentoPoco> Browse()
-        {
-            return this.Browse(null);
-        }
-        public override List<DepartamentoPoco> Browse(Expression<Func<Departamento, bool>> predicate = null)
-        {
-            List<DepartamentoPoco> listaPoco;
             IQueryable<Departamento> query;
             if (predicate == null)
             {
@@ -45,8 +26,7 @@ namespace Atacado.Servico.RH
             {
                 query = this.genrepo.Browseable(predicate);
             }
-
-            listaPoco = query.Select(dep =>
+            List<DepartamentoPoco> listaPoco = query.Select(dep =>
                     new DepartamentoPoco()
                     {
                         DepartamentoId = dep.DepartamentoId,
@@ -58,7 +38,8 @@ namespace Atacado.Servico.RH
                 .ToList();
             return listaPoco;
         }
-        public override DepartamentoPoco ConvertTo(Departamento dominio)
+
+        public override DepartamentoPoco ConverterPara(Departamento dominio)
         {
             return new DepartamentoPoco()
             {
@@ -69,7 +50,7 @@ namespace Atacado.Servico.RH
             };
         }
 
-        public override Departamento ConvertTo(DepartamentoPoco poco)
+        public override Departamento ConverterPara(DepartamentoPoco poco)
         {
             return new Departamento()
             {
@@ -78,35 +59,6 @@ namespace Atacado.Servico.RH
                 DataInsert = poco.DataInsert,
                 Ativo = poco.Ativo,
             };
-        }
-
-        public override DepartamentoPoco Delete(int chave)
-        {
-            Departamento del = this.genrepo.Delete(chave);
-            DepartamentoPoco delPoco = this.ConvertTo(del);
-            return delPoco;
-        }
-
-        public override DepartamentoPoco Delete(DepartamentoPoco poco)
-        {
-            Departamento del = this.genrepo.Delete(poco.DepartamentoId);
-            DepartamentoPoco delPoco = this.ConvertTo(del);
-            return delPoco;
-        }
-
-        public override DepartamentoPoco Edit(DepartamentoPoco poco)
-        {
-            Departamento editada = this.ConvertTo(poco);
-            Departamento alterada = this.genrepo.Update(editada);
-            DepartamentoPoco alteradaPoco = this.ConvertTo(alterada);
-            return alteradaPoco;
-        }
-
-        public override DepartamentoPoco Read(int chave)
-        {
-            Departamento lida = this.genrepo.GetById(chave);
-            DepartamentoPoco lidaPoco = this.ConvertTo(lida);
-            return lidaPoco;
         }
     }
 }
