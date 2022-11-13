@@ -36,7 +36,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                List<SubcategoriaPoco> lista = this.servico.Browse();
+                List<SubcategoriaPoco> lista = this.servico.Listar();
                 return Ok(lista);
             }
             catch (Exception ex)
@@ -51,11 +51,11 @@ namespace AtacadoApi.Controllers
         /// <param name="catid">Código da categoria (chave estrangeira) da tabela Subcategoria</param>
         /// <returns></returns>
         [HttpGet("PorCategoria/{catid:int}")]
-        public ActionResult<List<SubcategoriaPoco>> GetPorCategoria(int catid)
+        public ActionResult <List<SubcategoriaPoco>> GetPorCategoria(int catid)
         {
             try
             {
-                List<SubcategoriaPoco> lista = this.servico.Browse(sub => sub.CodigoCategoria == catid).ToList();
+                List<SubcategoriaPoco> lista = this.servico.Consultar(sub => sub.CodigoCategoria == catid).ToList();
                 return Ok(lista);
             }
             catch (Exception ex)
@@ -74,7 +74,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                SubcategoriaPoco readPoco = this.servico.Read(chave);
+                SubcategoriaPoco readPoco = this.servico.PesquisarPorChave(chave);
                 return Ok(readPoco);
             }
             catch (Exception ex)
@@ -93,7 +93,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                SubcategoriaPoco addPoco = this.servico.Add(poco);
+                SubcategoriaPoco addPoco = this.servico.Inserir(poco);
                 return Ok(addPoco);
             }
             catch (Exception ex)
@@ -112,7 +112,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                SubcategoriaPoco editPoco = this.servico.Edit(poco);
+                SubcategoriaPoco editPoco = this.servico.Alterar(poco);
                 return Ok(editPoco);
             }
             catch (Exception ex)
@@ -131,7 +131,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                SubcategoriaPoco delPoco = this.servico.Delete(chave);
+                SubcategoriaPoco delPoco = this.servico.Excluir(chave);
                 return Ok(delPoco);
             }
             catch (Exception ex)
@@ -150,7 +150,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                SubcategoriaPoco delPoco = this.servico.Delete(poco);
+                SubcategoriaPoco delPoco = this.servico.Excluir(poco.Codigo);
                 return Ok(delPoco);
             }
             catch (Exception ex)

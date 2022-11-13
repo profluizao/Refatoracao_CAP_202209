@@ -208,7 +208,7 @@
             
             </summary>
         </member>
-        <member name="M:AtacadoApi.Controllers.FuncionarioController.GetAll">
+        <member name="M:AtacadoApi.Controllers.FuncionarioController.GetAll(System.Nullable{System.Int32},System.Nullable{System.Int32})">
             <summary>
             Listar todos os registros da tabela Categoria.
             </summary>
@@ -310,7 +310,7 @@
             
             </summary>
         </member>
-        <member name="M:AtacadoApi.Controllers.MunicipioController.GetAll">
+        <member name="M:AtacadoApi.Controllers.MunicipioController.GetAll(System.Nullable{System.Int32},System.Nullable{System.Int32})">
             <summary>
             Lista todos os registros da tabela Municipio
             </summary>

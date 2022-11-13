@@ -33,7 +33,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                List<CategoriaPoco> lista = this.servico.Browse();
+                List<CategoriaPoco> lista = this.servico.Listar();
                 return Ok(lista);
             }
             catch (Exception ex)
@@ -52,7 +52,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                CategoriaPoco poco = this.servico.Read(chave);
+                CategoriaPoco poco = this.servico.PesquisarPorChave(chave);
                 return Ok(poco);
             }
             catch (Exception ex)
@@ -71,7 +71,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                CategoriaPoco novoPoco = this.servico.Add(poco);
+                CategoriaPoco novoPoco = this.servico.Inserir(poco);
                 return Ok(novoPoco);
             }
             catch (Exception ex)
@@ -90,7 +90,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                CategoriaPoco novoPoco = this.servico.Edit(poco);
+                CategoriaPoco novoPoco = this.servico.Alterar(poco);
                 return Ok(novoPoco);
             }
             catch (Exception ex)
@@ -109,7 +109,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                CategoriaPoco poco = this.servico.Delete(chave);
+                CategoriaPoco poco = this.servico.Excluir(chave);
                 return Ok(poco);
             }
             catch (Exception ex)
@@ -128,8 +128,8 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                CategoriaPoco novoPoco = this.servico.Delete(poco);
-                return Ok(novoPoco);
+                CategoriaPoco delPoco = this.servico.Excluir(poco.Codigo);
+                return Ok(delPoco);
             }
             catch (Exception ex)
             {
