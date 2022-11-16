@@ -47,7 +47,7 @@ namespace AtacadoApi.Controllers
         /// <param name="chave">Chave primária da tabela</param>
         /// <returns></returns>
         [HttpGet("{chave:int}")]
-        public ActionResult<MunicipioPoco> GetById(long chave)
+        public ActionResult<MunicipioPoco> GetById(int chave)
         {
             try
             {
@@ -104,7 +104,7 @@ namespace AtacadoApi.Controllers
         /// <param name="chave">Chave primária da tabela</param>
         /// <returns></returns>
         [HttpDelete("{chave:int}")]
-        public ActionResult<MunicipioPoco> DeleteById(long chave)
+        public ActionResult<MunicipioPoco> DeleteById(int chave)
         {
             try
             {

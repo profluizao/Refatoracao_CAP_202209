@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Atacado.Repositorio.Base;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Atacado.Servico.Base
 {

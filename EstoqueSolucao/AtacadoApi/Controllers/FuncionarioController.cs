@@ -45,7 +45,7 @@ namespace AtacadoApi.Controllers
         /// </summary>
         /// <param name="chave"></param>
         /// <returns></returns>
-        [HttpGet("{chave:int}")]
+        [HttpGet("{chave:long}")]
         public ActionResult<FuncionarioPoco> GetById(long chave)
         {
             try
@@ -102,7 +102,7 @@ namespace AtacadoApi.Controllers
         /// </summary>
         /// <param name="chave"></param>
         /// <returns></returns>
-        [HttpDelete("{chave:int}")]
+        [HttpDelete("{chave:long}")]
         public ActionResult<FuncionarioPoco> DeleteById(long chave)
         {
             try
