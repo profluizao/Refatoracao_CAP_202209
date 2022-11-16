@@ -37,8 +37,7 @@ namespace AtacadoApi.Controllers
             catch(Exception ex)
             {
                 return BadRequest(ex.ToString());
-            }
-            
+            }            
         }
 
         /// <summary>

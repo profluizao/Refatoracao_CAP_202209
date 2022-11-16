@@ -235,7 +235,7 @@
             <param name="poco"></param>
             <returns></returns>
         </member>
-        <member name="M:AtacadoApi.Controllers.FuncionarioController.DeleteById(System.Int32)">
+        <member name="M:AtacadoApi.Controllers.FuncionarioController.DeleteById(System.Int64)">
             <summary>
             Realiza a exclusão de um registro de acordo com a chave primária informada
             </summary>
@@ -316,7 +316,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:AtacadoApi.Controllers.MunicipioController.GetById(System.Int32)">
+        <member name="M:AtacadoApi.Controllers.MunicipioController.GetById(System.Int64)">
             <summary>
             Lista o registro da tabela Municipio de acordo com a Id
             </summary>
@@ -337,7 +337,7 @@
             <param name="poco">Instância passada como parâmetro</param>
             <returns></returns>
         </member>
-        <member name="M:AtacadoApi.Controllers.MunicipioController.DeleteById(System.Int32)">
+        <member name="M:AtacadoApi.Controllers.MunicipioController.DeleteById(System.Int64)">
             <summary>
             Realiza a exclusão de um registro de acordo com o Id
             </summary>
