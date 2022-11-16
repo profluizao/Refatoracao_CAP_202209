@@ -108,13 +108,13 @@
         </member>
         <member name="M:AtacadoApi.Controllers.DepartamentoController.GetAll">
             <summary>
-            Listar todos os registros da tabela Instituicão Bancaria
+            Listar todos os registros da tabela Departamento
             </summary>
             <returns>Uma lista com todos os registros</returns>
         </member>
         <member name="M:AtacadoApi.Controllers.DepartamentoController.GetById(System.Int32)">
             <summary>
-            Lista o registro da tabela Instituição Bancária de acordo com a chave primária informada
+            Lista o registro da tabela Departamento de acordo com a chave primária informada
             </summary>
             <param name="chave">Chave primária da tabela</param>
             <returns></returns>
@@ -159,13 +159,13 @@
         </member>
         <member name="M:AtacadoApi.Controllers.EstadoController.GetAll">
             <summary>
-            Listar todos os registros da tabela Categoria.
+            Listar todos os registros da tabela Estado.
             </summary>
             <returns>Uma lista com todos os registros.</returns>
         </member>
         <member name="M:AtacadoApi.Controllers.EstadoController.GetById(System.Int32)">
             <summary>
-            Lista o registro da tabela Categoria de acordo com a chave informada
+            Lista o registro da tabela Estado de acordo com a chave informada
             </summary>
             <param name="chave">chave primária da tabela</param>
             <returns></returns>
@@ -210,13 +210,13 @@
         </member>
         <member name="M:AtacadoApi.Controllers.FuncionarioController.GetAll(System.Nullable{System.Int32},System.Nullable{System.Int32})">
             <summary>
-            Listar todos os registros da tabela Categoria.
+            Listar todos os registros da tabela Funcionario.
             </summary>
             <returns></returns>
         </member>
-        <member name="M:AtacadoApi.Controllers.FuncionarioController.GetById(System.Int32)">
+        <member name="M:AtacadoApi.Controllers.FuncionarioController.GetById(System.Int64)">
             <summary>
-            Lista o registro da tabela Categoria de acordo com a chave primária informada
+            Lista o registro da tabela Funcionario de acordo com a chave primária informada
             </summary>
             <param name="chave"></param>
             <returns></returns>
@@ -420,7 +420,7 @@
         </member>
         <member name="M:AtacadoApi.Controllers.ProdutoController.GetPorCategoria(System.Int32)">
             <summary>
-            Listar todos os registros da tabela Produto de acordo com o código de Categoria informado.
+            Listar todos os registros da tabela Produto de acordo com o código de Produto informado.
             </summary>
             <param name="catid"></param>
             <returns></returns>
@@ -487,13 +487,13 @@
         </member>
         <member name="M:AtacadoApi.Controllers.ProfissaoController.GetAll">
             <summary>
-            Listar todos os registros da tabela Categoria.
+            Listar todos os registros da tabela Profissao.
             </summary>
             <returns>Uma lista com todos os registros.</returns>
         </member>
         <member name="M:AtacadoApi.Controllers.ProfissaoController.GetById(System.Int32)">
             <summary>
-            Lista o registro da tabela Categoria de acordo com a chave informada
+            Lista o registro da tabela Profissao de acordo com a chave informada
             </summary>
             <param name="chave">chave primária da tabela</param>
             <returns></returns>

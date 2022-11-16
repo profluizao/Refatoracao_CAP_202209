@@ -104,7 +104,7 @@ namespace AtacadoApi.Controllers
         /// <param name="chave"></param>
         /// <returns></returns>
         [HttpDelete("{chave:int}")]
-        public ActionResult<FuncionarioPoco> DeleteById(int chave)
+        public ActionResult<FuncionarioPoco> DeleteById(long chave)
         {
             try
             {
