@@ -43,7 +43,7 @@ namespace AtacadoApi.Controllers
         }
 
         /// <summary>
-        /// Listar todos os registros da tabela Produto de acordo com o código de Categoria informado.
+        /// Listar todos os registros da tabela Produto de acordo com o código de Produto informado.
         /// </summary>
         /// <param name="catid"></param>
         /// <returns></returns>

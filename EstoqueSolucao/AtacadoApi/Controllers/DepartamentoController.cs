@@ -20,7 +20,7 @@ namespace AtacadoApi.Controllers
         }
 
         /// <summary>
-        /// Listar todos os registros da tabela Instituicão Bancaria
+        /// Listar todos os registros da tabela Departamento
         /// </summary>
         /// <returns>Uma lista com todos os registros</returns>
         [HttpGet]
@@ -38,7 +38,7 @@ namespace AtacadoApi.Controllers
         }
 
         /// <summary>
-        /// Lista o registro da tabela Instituição Bancária de acordo com a chave primária informada
+        /// Lista o registro da tabela Departamento de acordo com a chave primária informada
         /// </summary>
         /// <param name="chave">Chave primária da tabela</param>
         /// <returns></returns>

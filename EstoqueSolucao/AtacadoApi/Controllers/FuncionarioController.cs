@@ -23,7 +23,7 @@ namespace AtacadoApi.Controllers
         }
 
         /// <summary>
-        /// Listar todos os registros da tabela Categoria.
+        /// Listar todos os registros da tabela Funcionario.
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -42,12 +42,12 @@ namespace AtacadoApi.Controllers
         }
 
         /// <summary>
-        /// Lista o registro da tabela Categoria de acordo com a chave primária informada
+        /// Lista o registro da tabela Funcionario de acordo com a chave primária informada
         /// </summary>
         /// <param name="chave"></param>
         /// <returns></returns>
         [HttpGet("{chave:int}")]
-        public ActionResult<FuncionarioPoco> GetById(int chave)
+        public ActionResult<FuncionarioPoco> GetById(long chave)
         {
             try
             {

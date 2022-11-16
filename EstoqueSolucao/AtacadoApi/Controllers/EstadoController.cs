@@ -22,7 +22,7 @@ namespace AtacadoApi.Controllers
         }
 
         /// <summary>
-        /// Listar todos os registros da tabela Categoria.
+        /// Listar todos os registros da tabela Estado.
         /// </summary>
         /// <returns>Uma lista com todos os registros.</returns>
         [HttpGet]
@@ -40,7 +40,7 @@ namespace AtacadoApi.Controllers
         }
 
         /// <summary>
-        /// Lista o registro da tabela Categoria de acordo com a chave informada
+        /// Lista o registro da tabela Estado de acordo com a chave informada
         /// </summary>
         /// <param name="chave">chave primária da tabela</param>
         /// <returns></returns>
