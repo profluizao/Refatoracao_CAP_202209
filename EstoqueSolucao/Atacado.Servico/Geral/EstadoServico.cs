@@ -36,25 +36,5 @@ namespace Atacado.Servico.Geral
             .ToList();
             return listaPoco;
         }
-
-        public override EstadoPoco ConverterPara(Estado obj)
-        {
-            return new EstadoPoco()
-            {
-                CodigoUf = obj.CodigoUf,
-                SiglaUf = obj.SiglaUf,
-                DescricaoUf = obj.DescricaoUf
-            };
-        }
-
-        public override Estado ConverterPara(EstadoPoco obj)
-        {
-            return new Estado()
-            {
-                CodigoUf = obj.CodigoUf,
-                SiglaUf = obj.SiglaUf,
-                DescricaoUf = obj.DescricaoUf
-            };
-        }
     }
 }

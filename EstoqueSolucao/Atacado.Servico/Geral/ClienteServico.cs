@@ -49,45 +49,5 @@ namespace Atacado.Servico.Geral
             .ToList();
             return listaPoco;
         }
-
-        public override ClientePoco ConverterPara(Cliente obj)
-        {
-            return new ClientePoco()
-            {
-                Codigo = obj.Codigo,
-                Nome = obj.Nome,
-                RazaoSocial = obj.RazaoSocial,
-                NomeFantasia = obj.NomeFantasia,
-                Documento = obj.Documento,
-                Telefone = obj.Telefone,
-                Email = obj.Email,
-                TipoPessoa = obj.TipoPessoa,
-                Endereco = obj.Endereco,
-                Ativo = obj.Ativo,
-                DataInclusao = obj.DataInclusao,
-                DataAlteracao = obj.DataAlteracao,
-                DataExclusao = obj.DataExclusao
-            };
-        }
-
-        public override Cliente ConverterPara(ClientePoco obj)
-        {
-            return new Cliente()
-            {
-                Codigo = obj.Codigo,
-                Nome = obj.Nome,
-                RazaoSocial = obj.RazaoSocial,
-                NomeFantasia = obj.NomeFantasia,
-                Documento = obj.Documento,
-                Telefone = obj.Telefone,
-                Email = obj.Email,
-                TipoPessoa = obj.TipoPessoa,
-                Endereco = obj.Endereco,
-                Ativo = obj.Ativo,
-                DataInclusao = obj.DataInclusao,
-                DataAlteracao = obj.DataAlteracao,
-                DataExclusao = obj.DataExclusao
-            };
-        }
     }
 }
