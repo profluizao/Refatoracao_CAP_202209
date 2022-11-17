@@ -40,31 +40,5 @@ namespace Atacado.Servico.Geral
             .ToList();
             return listaPoco;
         }
-
-        public override InstituicaoBancariaPoco ConverterPara(InstituicaoBancaria obj)
-        {
-            return new InstituicaoBancariaPoco()
-            {
-                InstituicaoBancariaId = obj.InstituicaoBancariaId,
-                CodigoBanco = obj.CodigoBanco,
-                Descricao = obj.Descricao,
-                SiteWww = obj.SiteWww,
-                DataInsert = obj.DataInsert,
-                Ativo = obj.Ativo
-            };
-        }
-
-        public override InstituicaoBancaria ConverterPara(InstituicaoBancariaPoco obj)
-        {
-            return new InstituicaoBancaria()
-            {
-                InstituicaoBancariaId = obj.InstituicaoBancariaId,
-                CodigoBanco = obj.CodigoBanco,
-                Descricao = obj.Descricao,
-                SiteWww = obj.SiteWww,
-                DataInsert = obj.DataInsert,
-                Ativo = obj.Ativo
-            };
-        }
     }
 }

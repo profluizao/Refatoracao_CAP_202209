@@ -45,42 +45,6 @@ namespace Atacado.Servico.Geral
             return this.ConverterPara(query);
         }
 
-        public override MunicipioPoco ConverterPara(Municipio dominio)
-        {
-            return new MunicipioPoco()
-            {
-                CodigoMunicipio = dominio.CodigoMunicipio,
-                NomeMunicipio = dominio.NomeMunicipio,
-                CodigoIbge6 = dominio.CodigoIbge6,
-                CodigoIbge7 = dominio.CodigoIbge7,
-                Cep = dominio.Cep,
-                CodigoUf = dominio.CodigoUf,
-                SiglaUf = dominio.SiglaUf,
-                Regiao = dominio.Regiao,
-                Populacao = dominio.Populacao,
-                Porte = dominio.Porte,
-                DataInclusao = dominio.DataInclusao
-            };
-        }
-
-        public override Municipio ConverterPara(MunicipioPoco poco)
-        {
-            return new Municipio()
-            {
-                CodigoMunicipio = poco.CodigoMunicipio,
-                NomeMunicipio = poco.NomeMunicipio,
-                CodigoIbge6 = poco.CodigoIbge6,
-                CodigoIbge7 = poco.CodigoIbge7,
-                Cep = poco.Cep,
-                CodigoUf = poco.CodigoUf,
-                SiglaUf = poco.SiglaUf,
-                Regiao = poco.Regiao,
-                Populacao = poco.Populacao,
-                Porte = poco.Porte,
-                DataInclusao = poco.DataInclusao
-            };
-        }
-
         public override List<MunicipioPoco> ConverterPara(IQueryable<Municipio> query)
         {
             return query.Select(mun =>

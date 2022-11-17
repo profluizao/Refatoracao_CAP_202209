@@ -37,29 +37,5 @@ namespace Atacado.Servico.Geral
                 .ToList();
             return listaPoco;
         }
-
-        public override PaisPoco ConverterPara(Pais dominio)
-        {
-            return new PaisPoco()
-            {
-                PaisId = dominio.PaisId,
-                Sigla = dominio.Sigla,
-                CodigoIdioma = dominio.CodigoIdioma,
-                Descricao = dominio.Descricao,
-                DataInsert = dominio.DataInsert
-            };
-        }
-
-        public override Pais ConverterPara(PaisPoco poco)
-        {
-            return new Pais()
-            {
-                PaisId = poco.PaisId,
-                Sigla = poco.Sigla,
-                CodigoIdioma = poco.CodigoIdioma,
-                Descricao = poco.Descricao,
-                DataInsert = poco.DataInsert
-            };
-        }
     }
 }
