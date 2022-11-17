@@ -38,27 +38,5 @@ namespace Atacado.Servico.RH
                 .ToList();
             return listaPoco;
         }
-
-        public override DepartamentoPoco ConverterPara(Departamento dominio)
-        {
-            return new DepartamentoPoco()
-            {
-                DepartamentoId = dominio.DepartamentoId,
-                Descricao = dominio.Descricao,
-                DataInsert = dominio.DataInsert,
-                Ativo = dominio.Ativo,
-            };
-        }
-
-        public override Departamento ConverterPara(DepartamentoPoco poco)
-        {
-            return new Departamento()
-            {
-                DepartamentoId = poco.DepartamentoId,
-                Descricao = poco.Descricao,
-                DataInsert = poco.DataInsert,
-                Ativo = poco.Ativo,
-            };
-        }
     }
 }

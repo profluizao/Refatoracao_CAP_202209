@@ -45,44 +45,6 @@ namespace Atacado.Servico.RH
             return this.ConverterPara(query);
         }
 
-        public override FuncionarioPoco ConverterPara(Funcionario obj)
-        {
-            return new FuncionarioPoco()
-            {
-                FuncionarioId = obj.FuncionarioId,
-                Matricula = obj.Matricula,
-                Nome = obj.Nome,
-                Sobrenome = obj.Sobrenome,
-                Sexo = obj.Sexo,
-                DataNascimento = obj.DataNascimento,
-                Email = obj.Email,
-                Ctps = obj.Ctps,
-                CtpsNum = obj.CtpsNum,
-                CtpsSerie = obj.CtpsSerie,
-                DataAdmissao = obj.DataAdmissao,
-                Ativo = obj.Ativo
-            };
-        }
-
-        public override Funcionario ConverterPara(FuncionarioPoco obj)
-        {
-            return new Funcionario()
-            {
-                FuncionarioId = obj.FuncionarioId,
-                Matricula = obj.Matricula,
-                Nome = obj.Nome,
-                Sobrenome = obj.Sobrenome,
-                Sexo = obj.Sexo,
-                DataNascimento = obj.DataNascimento,
-                Email = obj.Email,
-                Ctps = obj.Ctps,
-                CtpsNum = obj.CtpsNum,
-                CtpsSerie = obj.CtpsSerie,
-                DataAdmissao = obj.DataAdmissao,
-                Ativo = obj.Ativo
-            };
-        }
-
         public override List<FuncionarioPoco> ConverterPara(IQueryable<Funcionario> query)
         {
             return query.Select(fun =>

@@ -36,27 +36,5 @@ namespace Atacado.Servico.RH
                 .ToList();
             return listaPoco;
         }
-
-        public override Profissao ConverterPara(ProfissaoPoco obj)
-        {
-            return new Profissao()
-            {
-                ProfissaoId = obj.ProfissaoId,
-                Descricao = obj.Descricao,
-                DataInsert = obj.DataInsert,
-                Ativo = obj.Ativo,
-            };
-        }
-
-        public override ProfissaoPoco ConverterPara(Profissao obj)
-        {
-            return new ProfissaoPoco()
-            {
-                ProfissaoId = obj.ProfissaoId,
-                Descricao = obj.Descricao,
-                DataInsert = obj.DataInsert,
-                Ativo = obj.Ativo,
-            };
-        }
     }
 }
