@@ -43,32 +43,6 @@ namespace Atacado.Servico.Estoque
             return this.ConverterPara(query);
         }
 
-        public override Produto ConverterPara(ProdutoPoco obj)
-        {
-            return new Produto()
-            {
-                Codigo = obj.Codigo,
-                CodigoCategoria = obj.CodigoCategoria,
-                CodigoSubcategoria = obj.CodigoSubcategoria,
-                Descricao = obj.Descricao,
-                Ativo = obj.Ativo,
-                DataInsert = obj.DataInsert
-            };
-        }
-
-        public override ProdutoPoco ConverterPara(Produto obj)
-        {
-            return new ProdutoPoco()
-            {
-                Codigo = obj.Codigo,
-                CodigoCategoria = obj.CodigoCategoria,
-                CodigoSubcategoria = obj.CodigoSubcategoria,
-                Descricao = obj.Descricao,
-                Ativo = obj.Ativo,
-                DataInsert = obj.DataInsert
-            };
-        }
-
         public override List<ProdutoPoco> ConverterPara(IQueryable<Produto> query)
         {
             return query.Select(pro =>

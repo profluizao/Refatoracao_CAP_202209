@@ -37,27 +37,5 @@ namespace Atacado.Servico.Estoque
             .ToList();
           return listaPoco;
         }
-
-        public override CategoriaPoco ConverterPara(Categoria obj)
-        {
-            return new CategoriaPoco()
-            {
-                Codigo = obj.Codigo,
-                Descricao = obj.Descricao,
-                Ativo = obj.Ativo,
-                DataInsert = obj.DataInsert
-            };
-        }
-
-        public override Categoria ConverterPara(CategoriaPoco obj)
-        {
-            return new Categoria()
-            {
-                Codigo = obj.Codigo,
-                Descricao = obj.Descricao,
-                Ativo = obj.Ativo,
-                DataInsert = obj.DataInsert
-            };
-        }
     }
 }
