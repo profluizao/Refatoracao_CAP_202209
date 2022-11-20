@@ -28,6 +28,10 @@ namespace Atacado.DB.EF.Database
         public virtual DbSet<Profissao> Profissoes { get; set; } = null!;
         public virtual DbSet<Subcategoria> Subcategorias { get; set; } = null!;
 
+        public virtual DbSet<TipoRebanho> TipoRebasnhos { get; set; } = null!;
+
+        public virtual DbSet<Rebanho> Rebanhos { get; set; } = null!;
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -140,6 +144,20 @@ namespace Atacado.DB.EF.Database
                     .HasForeignKey(d => d.CodigoCategoria)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_SubCategoria_Categoria");
+            });
+
+            modelBuilder.Entity<TipoRebanho>(entity =>
+            {
+                entity.Property(e => e.DataInclusao).HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.Situacao).HasDefaultValueSql("((1))");
+            });
+
+            modelBuilder.Entity<Rebanho>(entity =>
+            {
+                entity.Property(e => e.DataInclusao).HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.Situacao).HasDefaultValueSql("((1))");
             });
 
             OnModelCreatingPartial(modelBuilder);
