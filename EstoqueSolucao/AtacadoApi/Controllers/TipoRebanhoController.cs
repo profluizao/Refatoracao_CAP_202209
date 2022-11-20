@@ -85,7 +85,7 @@ namespace AtacadoApi.Controllers
         /// </summary>
         /// <param name="poco"></param>
         /// <returns></returns>
-        [HttpPost]
+        [HttpPut]
         public ActionResult<TipoRebanhoPoco> Put([FromBody] TipoRebanhoPoco poco)
         {
             try
