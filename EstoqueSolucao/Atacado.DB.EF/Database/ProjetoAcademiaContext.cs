@@ -28,7 +28,7 @@ namespace Atacado.DB.EF.Database
         public virtual DbSet<Profissao> Profissoes { get; set; } = null!;
         public virtual DbSet<Subcategoria> Subcategorias { get; set; } = null!;
 
-        public virtual DbSet<TipoRebanho> TipoRebasnhos { get; set; } = null!;
+        public virtual DbSet<TipoRebanho> TipoRebanhos { get; set; } = null!;
 
         public virtual DbSet<Rebanho> Rebanhos { get; set; } = null!;
 
@@ -36,7 +36,8 @@ namespace Atacado.DB.EF.Database
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=psgs0071.psg.local; Initial Catalog=Academia; User=Academia; Password=@cadem1@555;");
+                optionsBuilder.UseSqlServer("Data Source=AKIRA-PC; Initial Catalog=Academia; User=sa; Password=Senha123;");
+                //optionsBuilder.UseSqlServer("Data Source=psgs0071.psg.local; Initial Catalog=Academia; User=Academia; Password=@cadem1@555;");
             }
         }
 

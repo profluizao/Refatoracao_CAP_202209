@@ -10,7 +10,7 @@ namespace AtacadoApi.Controllers
     /// <summary>
     /// 
     /// </summary>
-    [Route("api/pecuaria[controller]")]
+    [Route("api/pecuaria/[controller]")]
     [ApiController]
     public class TipoRebanhoController : ControllerBase
     {
@@ -104,7 +104,7 @@ namespace AtacadoApi.Controllers
         /// </summary>
         /// <param name="codigo"></param>
         /// <returns></returns>
-        [HttpDelete("{chave:int}")]
+        [HttpDelete("{codigo:int}")]
         public ActionResult<TipoRebanhoPoco> DeleteById(int codigo)
         {
             try
