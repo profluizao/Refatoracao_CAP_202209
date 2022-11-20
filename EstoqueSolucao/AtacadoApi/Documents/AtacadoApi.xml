@@ -526,6 +526,71 @@
             <param name="poco">instância passada como parâmetro</param>
             <returns></returns>
         </member>
+        <member name="T:AtacadoApi.Controllers.RebanhoController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.RebanhoController.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.RebanhoController.GetAll(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Listar todos os registros da tabela Rebanho.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.RebanhoController.GetPorMunicipio(System.Int32)">
+            <summary>
+            Listar todos os registros da tabela Rebanho de acordo com o código de Categoria informado.
+            </summary>
+            <param name="munid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.RebanhoController.GetPorTipoRebanhoPorMunicipio(System.Int32,System.Int32)">
+            <summary>
+            Listar todos os registros da tabela Rebanho de acordo com o código de Subcategoria informado.
+            </summary>
+            <param name="tipid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.RebanhoController.GetById(System.Int32)">
+            <summary>
+            Lista o registro da tabela Rebanho de acordo com a chave primária informada
+            </summary>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.RebanhoController.Post(Atacado.Poco.Pecuaria.RebanhoPoco)">
+            <summary>
+            Realiza a criação de um registro através de uma instância
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.RebanhoController.Put(Atacado.Poco.Pecuaria.RebanhoPoco)">
+            <summary>
+            Realiza a alteração de um registro através de uma instância
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.RebanhoController.DeleteById(System.Int32)">
+            <summary>
+            Realiza a exclusão de um registro de acordo com a chave primária informada
+            </summary>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.RebanhoController.Delete(Atacado.Poco.Pecuaria.RebanhoPoco)">
+            <summary>
+            Realiza a exclusão de um registro através de uma instância
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
         <member name="T:AtacadoApi.Controllers.SubcategoriaController">
             <summary>
             
@@ -582,6 +647,50 @@
             Realiza a exclusão de um registro através de uma instância
             </summary>
             <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AtacadoApi.Controllers.TipoRebanhoController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.TipoRebanhoController.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.TipoRebanhoController.GetAll">
+            <summary>
+            Listar todos os registros da tabela.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.TipoRebanhoController.GetById(System.Int32)">
+            <summary>
+            Lista o Tipo Rebanho pelo código
+            </summary>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.TipoRebanhoController.Post(Atacado.Poco.Pecuaria.TipoRebanhoPoco)">
+            <summary>
+            Cria um novo registro na tabela 
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.TipoRebanhoController.Put(Atacado.Poco.Pecuaria.TipoRebanhoPoco)">
+            <summary>
+            Atualiza os dados da tabela 
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.TipoRebanhoController.DeleteById(System.Int32)">
+            <summary>
+            Apaga um registro por codigo informado
+            </summary>
+            <param name="codigo"></param>
             <returns></returns>
         </member>
     </members>
