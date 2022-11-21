@@ -34,10 +34,12 @@ builder.Services.AddSwaggerGen(opcoes =>
     var filePath = Path.Combine(builder.Environment.ContentRootPath, @"Documents\AtacadoApi.xml");
     opcoes.IncludeXmlComments(filePath);
 });
-var app = builder.Build();
+
 
 string str = builder.Configuration.GetConnectionString("Academia");
 builder.Services.AddDbContext<ProjetoAcademiaContext>(options => options.UseSqlServer(str));
+
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
