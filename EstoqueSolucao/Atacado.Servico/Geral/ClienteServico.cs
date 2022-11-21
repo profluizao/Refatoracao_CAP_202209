@@ -17,6 +17,10 @@ namespace Atacado.Servico.Geral
 {
     public class ClienteServico : GenericService<Cliente, ClientePoco>
     {
+        public ClienteServico(ProjetoAcademiaContext context) : base(context)
+        {
+        }
+
         public override List<ClientePoco> Consultar(Expression<Func<Cliente, bool>>? predicate = null)
         {
             IQueryable<Cliente> query;

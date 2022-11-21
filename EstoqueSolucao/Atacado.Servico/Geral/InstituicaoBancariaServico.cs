@@ -15,6 +15,10 @@ namespace Atacado.Servico.Geral
 {
     public class InstituicaoBancariaServico : GenericService<InstituicaoBancaria, InstituicaoBancariaPoco>
     {
+        public InstituicaoBancariaServico(ProjetoAcademiaContext context) : base(context)
+        {
+        }
+
         public override List<InstituicaoBancariaPoco> Consultar(Expression<Func<InstituicaoBancaria, bool>>? predicate = null)
         {
             IQueryable<InstituicaoBancaria> query;

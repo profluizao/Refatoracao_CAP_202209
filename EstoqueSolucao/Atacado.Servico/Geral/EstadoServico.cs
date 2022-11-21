@@ -14,6 +14,10 @@ namespace Atacado.Servico.Geral
 {
     public class EstadoServico : GenericService<Estado, EstadoPoco>
     {
+        public EstadoServico(ProjetoAcademiaContext context) : base(context)
+        {
+        }
+
         public override List<EstadoPoco> Consultar(Expression<Func<Estado, bool>>? predicate = null)
         {
             IQueryable<Estado> query;

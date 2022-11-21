@@ -1,4 +1,5 @@
-﻿using Atacado.Poco.Estoque;
+﻿using Atacado.DB.EF.Database;
+using Atacado.Poco.Estoque;
 using Atacado.Poco.Geral;
 using Atacado.Servico.Geral;
 using Microsoft.AspNetCore.Http;
@@ -20,9 +21,9 @@ namespace AtacadoApi.Controllers
         /// <summary>
         /// 
         /// </summary>
-        public ClienteController() : base()
+        public ClienteController(ProjetoAcademiaContext context) : base()
         {
-            this.servico = new ClienteServico();
+            this.servico = new ClienteServico(context);
         }
 
         /// <summary>
