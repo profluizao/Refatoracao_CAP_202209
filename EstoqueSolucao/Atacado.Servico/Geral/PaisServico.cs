@@ -13,6 +13,9 @@ namespace Atacado.Servico.Geral
 {
     public class PaisServico : GenericService<Pais, PaisPoco>
     {
+        public PaisServico(ProjetoAcademiaContext context) : base(context)
+        { }
+
         public override List<PaisPoco> Consultar(Expression<Func<Pais, bool>>? predicate = null)
         {
             IQueryable<Pais> query;

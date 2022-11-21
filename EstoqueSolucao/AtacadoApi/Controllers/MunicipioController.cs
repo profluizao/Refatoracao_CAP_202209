@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 using Atacado.Poco.Geral;
 using Atacado.Servico.Geral;
+using Atacado.DB.EF.Database;
 
 namespace AtacadoApi.Controllers
 {
@@ -18,9 +19,9 @@ namespace AtacadoApi.Controllers
         /// <summary>
         /// 
         /// </summary>
-        public MunicipioController() : base()
+        public MunicipioController(ProjetoAcademiaContext context) : base()
         {
-            this.servico = new MunicipioServico();
+            this.servico = new MunicipioServico(context);
         }
 
         /// <summary>
