@@ -15,6 +15,10 @@ namespace Atacado.Servico.RH
 {
     public class DepartamentoServico : GenericService<Departamento, DepartamentoPoco>
     {
+
+        public DepartamentoServico(ProjetoAcademiaContext context) : base(context)
+        { }
+
         public override List<DepartamentoPoco> Consultar(Expression<Func<Departamento, bool>>? predicate = null)
         {
             IQueryable<Departamento> query;

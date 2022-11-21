@@ -13,6 +13,10 @@ namespace Atacado.Servico.RH
 {
     public class ProfissaoServico : GenericService<Profissao, ProfissaoPoco>
     {
+
+        public ProfissaoServico(ProjetoAcademiaContext context) : base(context)
+        { }
+
         public override List<ProfissaoPoco> Consultar(Expression<Func<Profissao, bool>>? predicate = null)
         {
             IQueryable<Profissao> query;

@@ -1,4 +1,5 @@
-﻿using Atacado.Poco.RH;
+﻿using Atacado.DB.EF.Database;
+using Atacado.Poco.RH;
 using Atacado.Servico.RH;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -17,9 +18,9 @@ namespace AtacadoApi.Controllers
         /// <summary>
         /// 
         /// </summary>
-        public FuncionarioController() : base()
+        public FuncionarioController(ProjetoAcademiaContext context) : base()
         {
-            this.servico = new FuncionarioServico();
+            this.servico = new FuncionarioServico(context);
         }
 
         /// <summary>

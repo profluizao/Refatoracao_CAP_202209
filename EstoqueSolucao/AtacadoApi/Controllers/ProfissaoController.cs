@@ -3,6 +3,7 @@ using Atacado.Poco.RH;
 using Atacado.Servico.RH;
 using Atacado.Poco.Estoque;
 using System;
+using Atacado.DB.EF.Database;
 
 namespace AtacadoApi.Controllers
 {
@@ -18,9 +19,9 @@ namespace AtacadoApi.Controllers
         /// <summary>
         /// 
         /// </summary>
-        public ProfissaoController() : base()
+        public ProfissaoController(ProjetoAcademiaContext context) : base()
         {
-            this.servico = new ProfissaoServico();
+            this.servico = new ProfissaoServico(context);
         }
 
         /// <summary>
