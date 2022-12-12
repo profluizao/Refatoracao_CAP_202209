@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using ViajeFacil.Dominio.EF;
-using ViajeFacil.Poco.Viagem;
+using ViajeFacil.Poco;
 using ViajeFacil.Repository.Base;
 using ViajeFacil.Mapping.Base;
 using System.Security.Cryptography.X509Certificates;

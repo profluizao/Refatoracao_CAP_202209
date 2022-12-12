@@ -4,10 +4,24 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <DocumentationFile>Documents\ViajeFacilApi.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="LinqKit.Core" Version="1.2.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ViajeFacil.Dominio.EF\ViajeFacil.Dominio.EF.csproj" />
+    <ProjectReference Include="..\ViajeFacil.Poco\ViajeFacil.Poco.csproj" />
+    <ProjectReference Include="..\ViajeFacil.Repository\ViajeFacil.Repository.csproj" />
+    <ProjectReference Include="..\ViajeFacil.Service\ViajeFacil.Service.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Documents\" />
   </ItemGroup>
 
 </Project>
