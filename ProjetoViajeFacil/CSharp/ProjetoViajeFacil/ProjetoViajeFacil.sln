@@ -3,7 +3,49 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViajeFacil.Dominio.EF", "ViajeFacil.Dominio.EF\ViajeFacil.Dominio.EF.csproj", "{E4239B6E-3A1B-4BD5-8CAD-7300D8D33ADD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViajeFacil.Mapping", "ViajeFacil.Mapping\ViajeFacil.Mapping.csproj", "{EC181924-2DBD-42A1-BF59-B02FBFCEEA45}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViajeFacil.Poco", "ViajeFacil.Poco\ViajeFacil.Poco.csproj", "{1529A492-864F-4B7B-91B9-10231A74E06E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViajeFacil.Repository", "ViajeFacil.Repository\ViajeFacil.Repository.csproj", "{EA2BD793-CEAB-4E6D-8D01-21AE50A1F409}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViajeFacil.Service", "ViajeFacil.Service\ViajeFacil.Service.csproj", "{80146C49-E954-41D5-88BD-4E586D15C7A3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViajeFacilApi", "ViajeFacilApi\ViajeFacilApi.csproj", "{FA99A9DF-7F52-4CAD-A1D7-9E605400AE70}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E4239B6E-3A1B-4BD5-8CAD-7300D8D33ADD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4239B6E-3A1B-4BD5-8CAD-7300D8D33ADD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4239B6E-3A1B-4BD5-8CAD-7300D8D33ADD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4239B6E-3A1B-4BD5-8CAD-7300D8D33ADD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC181924-2DBD-42A1-BF59-B02FBFCEEA45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC181924-2DBD-42A1-BF59-B02FBFCEEA45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC181924-2DBD-42A1-BF59-B02FBFCEEA45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC181924-2DBD-42A1-BF59-B02FBFCEEA45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1529A492-864F-4B7B-91B9-10231A74E06E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1529A492-864F-4B7B-91B9-10231A74E06E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1529A492-864F-4B7B-91B9-10231A74E06E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1529A492-864F-4B7B-91B9-10231A74E06E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA2BD793-CEAB-4E6D-8D01-21AE50A1F409}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA2BD793-CEAB-4E6D-8D01-21AE50A1F409}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA2BD793-CEAB-4E6D-8D01-21AE50A1F409}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA2BD793-CEAB-4E6D-8D01-21AE50A1F409}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80146C49-E954-41D5-88BD-4E586D15C7A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80146C49-E954-41D5-88BD-4E586D15C7A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80146C49-E954-41D5-88BD-4E586D15C7A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80146C49-E954-41D5-88BD-4E586D15C7A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA99A9DF-7F52-4CAD-A1D7-9E605400AE70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA99A9DF-7F52-4CAD-A1D7-9E605400AE70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA99A9DF-7F52-4CAD-A1D7-9E605400AE70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA99A9DF-7F52-4CAD-A1D7-9E605400AE70}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
