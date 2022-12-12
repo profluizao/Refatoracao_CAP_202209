@@ -1,5 +1,5 @@
 ﻿
-namespace ViajeFacil.Poco.Viagem
+namespace ViajeFacil.Poco
 {
     public class CidadePoco
     {
