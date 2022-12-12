@@ -6,6 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using ViajeFacil.Service.Base;
 
+using ViajeFacil.Dominio.EF;
+using ViajeFacil.Poco;
+
 namespace ViajeFacil.Service.Viagem
 {
     public class EventoService : GenericService<Evento,EventoPoco>
