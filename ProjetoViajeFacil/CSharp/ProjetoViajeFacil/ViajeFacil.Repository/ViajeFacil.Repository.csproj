@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ViajeFacil.Dominio.EF\ViajeFacil.Dominio.EF.csproj" />
+  </ItemGroup>
+
 </Project>
