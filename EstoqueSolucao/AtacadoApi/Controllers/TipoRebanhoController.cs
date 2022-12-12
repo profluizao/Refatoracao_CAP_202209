@@ -19,9 +19,9 @@ namespace AtacadoApi.Controllers
         /// <summary>
         /// 
         /// </summary>
-        public TipoRebanhoController() : base()
+        public TipoRebanhoController(ProjetoAcademiaContext context) : base()
         {
-            this.servico = new TipoRebanhoServico();
+            this.servico = new TipoRebanhoServico(context);
         }
 
         /// <summary>

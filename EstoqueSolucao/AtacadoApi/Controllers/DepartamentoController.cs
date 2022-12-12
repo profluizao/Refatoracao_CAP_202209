@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Atacado.Servico.RH;
 using Atacado.Poco.RH;
 using System;
-
+using Atacado.DB.EF.Database;
 
 namespace AtacadoApi.Controllers
 {
@@ -14,9 +14,9 @@ namespace AtacadoApi.Controllers
     {
         private DepartamentoServico servico;
 
-        public DepartamentoController() : base()
+        public DepartamentoController(ProjetoAcademiaContext context) : base()
         {
-            this.servico = new DepartamentoServico();
+            this.servico = new DepartamentoServico(context);
         }
 
         /// <summary>

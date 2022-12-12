@@ -17,6 +17,10 @@ namespace Atacado.Servico.RH
 {
     public class FuncionarioServico : GenericService<Funcionario, FuncionarioPoco>
     {
+
+        public FuncionarioServico(ProjetoAcademiaContext context) : base(context)
+        { }
+
         public override List<FuncionarioPoco> Consultar(Expression<Func<Funcionario, bool>>? predicate = null)
         {
             IQueryable<Funcionario> query;

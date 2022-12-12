@@ -1,4 +1,5 @@
-﻿using Atacado.Poco.Geral;
+﻿using Atacado.DB.EF.Database;
+using Atacado.Poco.Geral;
 using Atacado.Servico.Geral;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,9 +17,9 @@ namespace AtacadoApi.Controllers
         /// <summary>
         /// 
         /// </summary>
-        public EstadoController() : base()
+        public EstadoController(ProjetoAcademiaContext context) : base()
         {
-            this.servico = new EstadoServico();
+            this.servico = new EstadoServico(context);
         }
 
         /// <summary>

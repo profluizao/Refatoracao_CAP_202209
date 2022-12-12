@@ -17,6 +17,9 @@ namespace Atacado.Servico.Geral
 {
     public class MunicipioServico : GenericService<Municipio, MunicipioPoco>
     {
+        public MunicipioServico(ProjetoAcademiaContext context) : base(context)
+        { }
+
         public override List<MunicipioPoco> Consultar(Expression<Func<Municipio, bool>>? predicate = null)
         {
             IQueryable<Municipio> query;

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 using Atacado.Repositorio.Base;
 using Atacado.Mapping.Base;
+using Atacado.DB.EF.Database;
 
 namespace Atacado.Servico.Base
 {
@@ -19,9 +20,9 @@ namespace Atacado.Servico.Base
 
         protected GenericMap<TDominio, TPoco> genmap;
 
-        public GenericService()
+        public GenericService(ProjetoAcademiaContext context)
         {
-            this.genrepo = new GenericRepository<TDominio>();
+            this.genrepo = new GenericRepository<TDominio>(context);
             this.genmap = new GenericMap<TDominio, TPoco>();
         }
         public List<TPoco> Listar()
