@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ViajeFacil.Dominio.EF;
-using ViajeFacil.Poco.Viagem;
+using ViajeFacil.Poco;
 using ViajeFacil.Service.Viagem;
 
 namespace ViajeFacilApi.Controllers

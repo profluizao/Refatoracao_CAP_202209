@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using ViajeFacil.Dominio.EF;
 using ViajeFacil.Poco;
-using ViajeFacil.Poco.Viagem;
 using ViajeFacil.Service.Viagem;
 
 namespace ViajeFacilApi.Controllers
@@ -112,7 +111,7 @@ namespace ViajeFacilApi.Controllers
         {
             try
             {
-                EstadoPoco poco = this.servico.PesquisarPelaChave(chave);
+                EstadoPoco poco = this.servico.PesquisarPorChave(chave);
                 return Ok(poco);
             }
             catch (Exception ex)

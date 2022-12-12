@@ -54,7 +54,7 @@ namespace ViajeFacilApi.Controllers
         {
             try
             {
-                RotaPoco poco = this.servico.PesquisarPelaChave(chave);
+                RotaPoco poco = this.servico.PesquisarPorChave(chave);
                 return Ok(poco);
             }
             catch (Exception ex)

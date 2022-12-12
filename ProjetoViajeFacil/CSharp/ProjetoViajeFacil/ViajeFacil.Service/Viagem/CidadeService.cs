@@ -78,8 +78,8 @@ namespace ViajeFacil.Service.Viagem
             {
                 CodigoCidade = cid.CodigoCidade,
                 Nome = cid.Nome,
-                CodigoIbge7 = cid.CodigoIBGE7,
-                SiglaUf = cid.SiglaUF,
+                CodigoIBGE7 = cid.CodigoIBGE7,
+                SiglaUF = cid.SiglaUF,
                 CodigoEstado = cid.CodigoEstado
             }
             )

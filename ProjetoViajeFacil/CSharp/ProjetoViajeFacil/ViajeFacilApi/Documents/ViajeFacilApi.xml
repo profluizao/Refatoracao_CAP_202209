@@ -1,0 +1,701 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ViajeFacilApi</name>
+    </assembly>
+    <members>
+        <member name="T:ViajeFacilApi.Controllers.CidadeController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.CidadeController.#ctor(ViajeFacil.Dominio.EF.ViajeFacilContexto)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.CidadeController.GetAll(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Lista todos os registros de Cidade por Paginação.
+            </summary>
+            <param name="take"> Onde inicia os resultados da pesquisa. </param>
+            <param name="skip"> Quantos registros serão retornados. </param>
+            <returns> Todos os registros. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.CidadeController.GetBySigla(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Lista todos os registros de Cidade por Paginação e Sigla UF.
+            </summary>
+            <param name="porSigla"> Informar a Sigla UF. </param>
+            <param name="take"> Onde inicia os resultados da pesquisa. </param>
+            <param name="skip"> Quantos registros serão retornados. </param>
+            <returns></returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.CidadeController.GetBySiglaById(System.String,System.Int64)">
+            <summary>
+            Realiza a pesquisa pela sigla e pela chave informada
+            </summary>
+            <param name="porSigla"></param>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.CidadeController.GetById(System.Int64)">
+            <summary>
+             Lista os registro usando a chave de Cidade.
+            </summary>
+            <param name="chave"> Chave de pesquisa. </param>
+            <returns> Registro localizado. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.CidadeController.Post(ViajeFacil.Poco.CidadePoco)">
+            <summary>
+            Inclui um novo dado em Cidade.
+            </summary>
+            <param name="poco"> Dados que será incluido. </param>
+            <returns> Dados incluido. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.CidadeController.Put(ViajeFacil.Poco.CidadePoco)">
+            <summary>
+            Altera um dado existente em Cidade.
+            </summary>
+            <param name="poco"> Altera o dado selecionado. </param>
+            <returns> Altera o dado selecionado. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.CidadeController.DeleteById(System.Int64)">
+            <summary>
+            Exclui um registro existente no recurso, utilizando um id.
+            </summary>
+            <param name="chave"> Chave para localização. </param>
+            <returns> Dado excluido por Id. </returns>
+        </member>
+        <member name="T:ViajeFacilApi.Controllers.EnderecoController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.EnderecoController.#ctor(ViajeFacil.Dominio.EF.ViajeFacilContexto)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.EnderecoController.GetAll(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Lista todos os registros de Endereco por Paginação.
+            </summary>
+            <param name="take"> Onde inicia os resultados da pesquisa. </param>
+            <param name="skip"> Quantos registros serão retornados. </param>
+            <returns> Todos os registros. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.EnderecoController.GetByCidade(System.Int32)">
+            <summary>
+            Listar todos os registros de Endereço por Cidade.
+            </summary>
+            <param name="cidadecod"> Chave de pesquisa. </param>
+            <returns> Registro localizado. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.EnderecoController.GetById(System.Int64)">
+            <summary>
+             Lista os registro usando a chave de Endereco.
+            </summary>
+            <param name="chave"> Chave de pesquisa. </param>
+            <returns> Registro localizado. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.EnderecoController.Post(ViajeFacil.Poco.EnderecoPoco)">
+            <summary>
+            Inclui um novo dado em Endereço.
+            </summary>
+            <param name="poco"> Dados que será incluido. </param>
+            <returns> Dados incluido. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.EnderecoController.Put(ViajeFacil.Poco.EnderecoPoco)">
+            <summary>
+            Altera um dado existente em Endereco.
+            </summary>
+            <param name="poco"> Altera o dado selecionado. </param>
+            <returns> Altera o dado selecionado. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.EnderecoController.DeleteById(System.Int64)">
+            <summary>
+            Exclui um registro existente no recurso, utilizando um id.
+            </summary>
+            <param name="chave"> Chave para localização. </param>
+            <returns> Dado excluido por Id. </returns>
+        </member>
+        <member name="T:ViajeFacilApi.Controllers.EstadoController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.EstadoController.#ctor(ViajeFacil.Dominio.EF.ViajeFacilContexto)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.EstadoController.GetAll(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Lista todos os registros de Estado por Paginação.
+            </summary>
+            <param name="take"> Onde inicia os resultados da pesquisa. </param>
+            <param name="skip"> Quantos registros serão retornados. </param>
+            <returns> Todos os registros. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.EstadoController.GetByRegiao(System.Int64)">
+            <summary>
+            Listar todos os registros de Cidade por chave Região.
+            </summary>
+            <param name="regiaocod"> Chave de pesquisa. </param>
+            <returns> Registro localizado. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.EstadoController.GetBySigla(System.String)">
+            <summary>
+            Retorna o registro de acordo com a sigla do Estado
+            </summary>
+            <param name="siglaUF"> Informar a Sigla Estado. </param>
+            <returns> Registro localizado. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.EstadoController.GetByNome(System.String)">
+            <summary>
+            Retorna o registro de acordo com o nome do Estado
+            </summary>
+            <param name="NomeCompleto"> Nome Completo para Pesquisa. </param>
+            <returns> Registro localizado. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.EstadoController.GetById(System.Int64)">
+            <summary>
+             Lista os registro usando a chave de Estado.
+            </summary>
+            <param name="chave"> Chave de pesquisa. </param>
+            <returns> Registro localizado. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.EstadoController.Post(ViajeFacil.Poco.EstadoPoco)">
+            <summary>
+            Inclui um novo dado em Estado.
+            </summary>
+            <param name="poco"> Dados que será incluido. </param>
+            <returns> Dados incluido. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.EstadoController.Put(ViajeFacil.Poco.EstadoPoco)">
+            <summary>
+            Altera um dado existente em Estado.
+            </summary>
+            <param name="poco"> Altera o dado selecionado. </param>
+            <returns> Altera o dado selecionado. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.EstadoController.DeleteById(System.Int64)">
+            <summary>
+            Exclui um registro existente no recurso, utilizando um id.
+            </summary>
+            <param name="chave"> Chave para localização. </param>
+            <returns> Dado excluido por Id. </returns>
+        </member>
+        <member name="T:ViajeFacilApi.Controllers.EventoController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.EventoController.#ctor(ViajeFacil.Dominio.EF.ViajeFacilContexto)">
+            <summary>
+            
+            </summary>
+            <param name="contexto"></param>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.EventoController.GetAll(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Retorna todos os registros da tabela Evento
+            </summary>
+            <param name="take"> Onde inicia os resultados da pesquisa. </param>
+            <param name="skip"> Quantos registros serão retornados. </param>
+            <returns></returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.EventoController.GetByInstituicaoId(System.Int64)">
+            <summary>
+            Retorna todos os registros da tabela Evento pelo código de instituição informado
+            </summary>
+            <param name="insid"> Chave de pesquisa. </param>
+            <returns> Registro localizado. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.EventoController.GetByEnderecoId(System.Int64)">
+            <summary>
+            Retorna todos os registros da tabela Evento pelo código de endereço informado
+            </summary>
+            <param name="endid"> Chave de pesquisa. </param>
+            <returns> Registro localizado. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.EventoController.GetByUsuarioId(System.Int64)">
+            <summary>
+            Retorna todos os registros da tabela Evento pelo código de usuário informado
+            </summary>
+            <param name="usuid"> Chave de pesquisa. </param>
+            <returns> Registro localizado. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.EventoController.GetById(System.Int64)">
+            <summary>
+            Realiza a consulta de acordo com a chave primária informada
+            </summary>
+            <param name="chave"> Chave de pesquisa. </param>
+            <returns> Registro localizado. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.EventoController.Post(ViajeFacil.Poco.EventoPoco)">
+            <summary>
+            Realiza a criação de um novo registro
+            </summary>
+            <param name="poco"> Dados que será incluido. </param>
+            <returns> Dados incluido. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.EventoController.Put(ViajeFacil.Poco.EventoPoco)">
+            <summary>
+            Realiza a alteração de um registro
+            </summary>
+            <param name="poco"> Altera o dado selecionado. </param>
+            <returns> Altera o dado selecionado. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.EventoController.Delete(System.Int64)">
+            <summary>
+            Realiza a exclusão do registro de acordo com a chave primária informada.
+            </summary>
+            <param name="chave"> Chave para localização. </param>
+            <returns> Dado excluido por Id. </returns>
+        </member>
+        <member name="T:ViajeFacilApi.Controllers.InstituicaoController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.InstituicaoController.#ctor(ViajeFacil.Dominio.EF.ViajeFacilContexto)">
+            <summary>
+            
+            </summary>
+            <param name="contexto"></param>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.InstituicaoController.GetAll(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Retorna todos os registros da tabela Instituicao
+            </summary>
+            <param name="take"> Onde inicia os resultados da pesquisa. </param>
+            <param name="skip"> Quantos registros serão retornados. </param>
+            <returns></returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.InstituicaoController.GetByEnderecoId(System.Int64)">
+            <summary>
+            Retorna o registro de acordo com o código de endereço informado
+            </summary>
+            <param name="endid"> Chave de pesquisa. </param>
+            <returns> Registro localizado. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.InstituicaoController.GetById(System.Int64)">
+            <summary>
+            Retorna o registro de acordo com a chave primária informada
+            </summary>
+            <param name="chave"> Chave de pesquisa. </param>
+            <returns> Registro localizado. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.InstituicaoController.Post(ViajeFacil.Poco.InstituicaoPoco)">
+            <summary>
+            Realiza a criação de um novo registro
+            </summary>
+            <param name="poco"> Dados que será incluido. </param>
+            <returns> Dados incluido. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.InstituicaoController.Put(ViajeFacil.Poco.InstituicaoPoco)">
+            <summary>
+            Realiza a alteração de um registro
+            </summary>
+            <param name="poco"> Altera o dado selecionado. </param>
+            <returns> Altera o dado selecionado. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.InstituicaoController.Delete(System.Int64)">
+            <summary>
+            Realiza a exclusão do registro de acordo com a chave primária informada.
+            </summary>
+            <param name="chave"> Chave para localização. </param>
+            <returns> Dado excluido por Id. </returns>
+        </member>
+        <member name="T:ViajeFacilApi.Controllers.PaisController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.PaisController.#ctor(ViajeFacil.Dominio.EF.ViajeFacilContexto)">
+            <summary>
+            
+            </summary>
+            <param name="contexto"></param>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.PaisController.GetAll(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Retorna todos os registros da tabela Pais
+            </summary>
+            <param name="take"> Onde inicia os resultados da pesquisa. </param>
+            <param name="skip"> Quantos registros serão retornados. </param>
+            <returns> Todos os registros. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.PaisController.GetByNome(System.String)">
+            <summary>
+            Retorna o registro de acordo com o nome informado.
+            </summary>
+            <param name="porNome"> Nome do país informado. </param>
+            <returns> Registro localizado. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.PaisController.GetById(System.Int64)">
+            <summary>
+            Retorna o registro de acordo com a chave primária informada.
+            </summary>
+            <param name="chave"> Chave de pesquisa. </param>
+            <returns> Registro localizado. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.PaisController.Post(ViajeFacil.Poco.PaisPoco)">
+            <summary>
+            Realiza a criação de um novo registro
+            </summary>
+            <param name="poco"> Dados que será incluido. </param>
+            <returns> Dados incluido. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.PaisController.Put(ViajeFacil.Poco.PaisPoco)">
+            <summary>
+            Realiza a alteração de um registro
+            </summary>
+            <param name="poco"> Altera o dado selecionado. </param>
+            <returns> Altera o dado selecionado. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.PaisController.Delete(System.Int64)">
+            <summary>
+            Realiza a exclusão do registro de acordo com a chave primária informada.
+            </summary>
+            <param name="chave"> Chave para localização. </param>
+            <returns> Dado excluido por Id. </returns>
+        </member>
+        <member name="T:ViajeFacilApi.Controllers.ParticipanteEventoController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.ParticipanteEventoController.#ctor(ViajeFacil.Dominio.EF.ViajeFacilContexto)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.ParticipanteEventoController.GetAll(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Lista todos os registros de Participante Evento por Paginação.
+            </summary>
+            <param name="take"> Onde inicia os resultados da pesquisa. </param>
+            <param name="skip"> Quantos registros serão retornados. </param>
+            <returns> Todos os registros. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.ParticipanteEventoController.GetByEvento(System.Int64)">
+            <summary>
+            Listar todos os registros de Partipante Evento por chave Evento.
+            </summary>
+            <param name="partcod"> Chave de pesquisa. </param>
+            <returns> Registro localizado. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.ParticipanteEventoController.GetByUsuario(System.Int64)">
+            <summary>
+            Listar todos os registros de Partipante Evento por chave Usuario.
+            </summary>
+            <param name="usuariocod"> Chave de pesquisa. </param>
+            <returns> Registro localizado. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.ParticipanteEventoController.GetById(System.Int64)">
+            <summary>
+             Lista os registro usando a chave de Participante Evento.
+            </summary>
+            <param name="chave"> Chave de pesquisa. </param>
+            <returns> Registro localizado. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.ParticipanteEventoController.Post(ViajeFacil.Poco.ParticipanteEventoPoco)">
+            <summary>
+            Inclui um novo dado em Participante Evento.
+            </summary>
+            <param name="poco"> Dados que será incluido. </param>
+            <returns> Dados incluido. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.ParticipanteEventoController.Put(ViajeFacil.Poco.ParticipanteEventoPoco)">
+            <summary>
+            Altera um dado existente em Participante Evento.
+            </summary>
+            <param name="poco"> Altera o dado selecionado. </param>
+            <returns> Altera o dado selecionado. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.ParticipanteEventoController.DeleteById(System.Int64)">
+            <summary>
+            Exclui um registro existente no recurso, utilizando um id.
+            </summary>
+            <param name="chave"> Chave para localização. </param>
+            <returns> Dado excluido por Id. </returns>
+        </member>
+        <member name="T:ViajeFacilApi.Controllers.PontoParadaController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.PontoParadaController.#ctor(ViajeFacil.Dominio.EF.ViajeFacilContexto)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.PontoParadaController.GetAll(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Lista todos os registros de Ponto Parada por Paginação.
+            </summary>
+            <param name="take"> Onde inicia os resultados da pesquisa. </param>
+            <param name="skip"> Quantos registros serão retornados. </param>
+            <returns> Todos os registros. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.PontoParadaController.GetByRota(System.Int64)">
+            <summary>
+            Listar todos os registros de Ponto Parada por chave Rota.
+            </summary>
+            <param name="rotacod"> Chave de pesquisa. </param>
+            <returns> Registro localizado. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.PontoParadaController.GetById(System.Int64)">
+            <summary>
+             Lista os registro usando a chave de Ponto Parada
+            </summary>
+            <param name="chave"> Chave de pesquisa. </param>
+            <returns> Registro localizado. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.PontoParadaController.Post(ViajeFacil.Poco.PontoParadaPoco)">
+            <summary>
+            Inclui um novo dado em Ponto Parada.
+            </summary>
+            <param name="poco"> Dados que será incluido. </param>
+            <returns> Dados incluido. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.PontoParadaController.Put(ViajeFacil.Poco.PontoParadaPoco)">
+            <summary>
+            Altera um dado existente em Ponto Parada.
+            </summary>
+            <param name="poco"> Altera o dado selecionado. </param>
+            <returns> Altera o dado selecionado. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.PontoParadaController.DeleteById(System.Int64)">
+            <summary>
+            Exclui um registro existente no recurso, utilizando um id.
+            </summary>
+            <param name="chave"> Chave para localização. </param>
+            <returns> Dado excluido por Id. </returns>
+        </member>
+        <member name="T:ViajeFacilApi.Controllers.RegiaoController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.RegiaoController.#ctor(ViajeFacil.Dominio.EF.ViajeFacilContexto)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.RegiaoController.GetAll(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Lista todos os registros de Região por Paginação.
+            </summary>
+            <param name="take"> Onde inicia os resultados da pesquisa. </param>
+            <param name="skip"> Quantos registros serão retornados. </param>
+            <returns> Todos os registros. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.RegiaoController.GetByPais(System.Int64)">
+            <summary>
+            Listar todos os registros de Região por País.
+            </summary>
+            <param name="paiscod"> Chave de pesquisa. </param>
+            <returns> Registro localizado. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.RegiaoController.GetById(System.Int64)">
+            <summary>
+             Lista os registro usando a chave de Região.
+            </summary>
+            <param name="chave"> Chave de pesquisa. </param>
+            <returns> Registro localizado. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.RegiaoController.Post(ViajeFacil.Poco.RegiaoPoco)">
+            <summary>
+            Inclui um novo dado em Região.
+            </summary>
+            <param name="poco"> Dados que será incluido. </param>
+            <returns> Dados incluido. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.RegiaoController.Put(ViajeFacil.Poco.RegiaoPoco)">
+            <summary>
+            Altera um dado existente em Região.
+            </summary>
+            <param name="poco"> Altera o dado selecionado. </param>
+            <returns> Altera o dado selecionado. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.RegiaoController.DeleteById(System.Int64)">
+            <summary>
+            Exclui um registro existente no recurso, utilizando um id.
+            </summary>
+            <param name="chave"> Chave para localização. </param>
+            <returns> Dado excluido por Id. </returns>
+        </member>
+        <member name="T:ViajeFacilApi.Controllers.RotaController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.RotaController.#ctor(ViajeFacil.Dominio.EF.ViajeFacilContexto)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.RotaController.GetAll(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Lista todos os registros de Rota por Paginação.
+            </summary>
+            <param name="take"> Onde inicia os resultados da pesquisa. </param>
+            <param name="skip"> Quantos registros serão retornados. </param>
+            <returns> Todos os registros. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.RotaController.GetById(System.Int64)">
+            <summary>
+             Lista os registro usando a chave de Rota.
+            </summary>
+            <param name="chave"> Chave de pesquisa. </param>
+            <returns> Registro localizado. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.RotaController.Post(ViajeFacil.Poco.RotaPoco)">
+            <summary>
+            Inclui um novo dado em Rota.
+            </summary>
+            <param name="poco"> Dados que será incluido. </param>
+            <returns> Dados incluido. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.RotaController.Put(ViajeFacil.Poco.RotaPoco)">
+            <summary>
+            Altera um dado existente em Rota.
+            </summary>
+            <param name="poco"> Altera o dado selecionado. </param>
+            <returns> Altera o dado selecionado. </returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.RotaController.DeleteById(System.Int64)">
+            <summary>
+            Exclui um registro existente no recurso, utilizando um id.
+            </summary>
+            <param name="chave"> Chave para localização. </param>
+            <returns> Dado excluido por Id. </returns>
+        </member>
+        <member name="T:ViajeFacilApi.Controllers.TipoUsuarioController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.TipoUsuarioController.#ctor(ViajeFacil.Dominio.EF.ViajeFacilContexto)">
+            <summary>
+            
+            </summary>
+            <param name="contexto"></param>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.TipoUsuarioController.GetAll(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Retorna todos os registros da tabela TipoUsuario
+            </summary>
+            <param name="take"></param>
+            <param name="skip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.TipoUsuarioController.GetById(System.Int64)">
+            <summary>
+            Retorna o registro de acordo com a chave primária informada
+            </summary>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.TipoUsuarioController.Post(ViajeFacil.Poco.TipoUsuarioPoco)">
+            <summary>
+            Realiza a criação de um novo registro
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.TipoUsuarioController.Put(ViajeFacil.Poco.TipoUsuarioPoco)">
+            <summary>
+            Realiza a alteração de um registro
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.TipoUsuarioController.Delete(System.Int64)">
+            <summary>
+            Realiza a exclusão do registro de acordo com a chave primária informada.
+            </summary>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ViajeFacilApi.Controllers.UsuarioController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.UsuarioController.#ctor(ViajeFacil.Dominio.EF.ViajeFacilContexto)">
+            <summary>
+            
+            </summary>
+            <param name="contexto"></param>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.UsuarioController.GetAll(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Retorna todos os registros da tabela Usuário
+            </summary>
+            <param name="take"></param>
+            <param name="skip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.UsuarioController.GetByEnderecoId(System.Int64)">
+            <summary>
+            Retorna todos os registros de acordo com o código de Endereço
+            </summary>
+            <param name="endid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.UsuarioController.GetByTipoUsuarioId(System.Int64)">
+            <summary>
+            Retorna todos os registros de acordo com o código de TipoUsuario
+            </summary>
+            <param name="tipid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.UsuarioController.GetByInstituicaoId(System.Int64)">
+            <summary>
+            Retorna todos os registros de acordo com o código de instituição informado
+            </summary>
+            <param name="insid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.UsuarioController.GetById(System.Int64)">
+            <summary>
+            Retorna o registro de acordo com a chave primária informada
+            </summary>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.UsuarioController.Post(ViajeFacil.Poco.UsuarioPoco)">
+            <summary>
+            Realiza a criação de um novo registro
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.UsuarioController.Put(ViajeFacil.Poco.UsuarioPoco)">
+            <summary>
+            Realiza a alteração de um registro
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ViajeFacilApi.Controllers.UsuarioController.Delete(System.Int64)">
+            <summary>
+            Realiza a exclusão do registro de acordo com a chave primária informada.
+            </summary>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

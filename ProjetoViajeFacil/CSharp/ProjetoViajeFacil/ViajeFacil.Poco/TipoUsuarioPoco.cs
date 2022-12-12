@@ -1,4 +1,5 @@
 ﻿namespace ViajeFacil.Poco
+{ 
     public class TipoUsuarioPoco
     {
         public long CodigoTipoUsuario { get; set; }

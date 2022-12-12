@@ -73,7 +73,7 @@ namespace ViajeFacilApi.Controllers
         {
             try
             {
-                RegiaoPoco poco = this.servico.PesquisarPelaChave(chave);
+                RegiaoPoco poco = this.servico.PesquisarPorChave(chave);
                 return Ok(poco);
             }
             catch (Exception ex)

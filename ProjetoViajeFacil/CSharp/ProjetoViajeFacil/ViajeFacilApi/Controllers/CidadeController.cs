@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using ViajeFacil.Dominio.EF;
 using ViajeFacil.Poco;
-using ViajeFacil.Poco.Viagem;
 using ViajeFacil.Service.Viagem;
 
 namespace ViajeFacilApi.Controllers
@@ -67,7 +66,7 @@ namespace ViajeFacilApi.Controllers
                     }
                     else
                     {
-                        predicate = predicate.And(s => s.SiglaUf == porSigla);
+                        predicate = predicate.And(s => s.SiglaUF == porSigla);
                         listPoco = this.servico.Consultar(predicate);
                         return Ok(listPoco);
                     }
@@ -80,7 +79,7 @@ namespace ViajeFacilApi.Controllers
                     }
                     else
                     {
-                        predicate = predicate.And(s => s.SiglaUf == porSigla);
+                        predicate = predicate.And(s => s.SiglaUF == porSigla);
                         listPoco = this.servico.Vasculhar(take, skip, predicate);
                         return Ok(listPoco);
                     }
@@ -127,7 +126,7 @@ namespace ViajeFacilApi.Controllers
         {
             try
             {
-                CidadePoco poco = this.servico.PesquisarPelaChave(chave);
+                CidadePoco poco = this.servico.PesquisarPorChave(chave);
                 return Ok(poco);
             }
             catch (Exception ex)

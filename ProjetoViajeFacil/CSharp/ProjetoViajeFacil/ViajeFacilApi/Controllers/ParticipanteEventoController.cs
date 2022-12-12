@@ -92,7 +92,7 @@ namespace ViajeFacilApi.Controllers
         {
             try
             {
-                ParticipanteEventoPoco poco = this.servico.PesquisarPelaChave(chave);
+                ParticipanteEventoPoco poco = this.servico.PesquisarPorChave(chave);
                 return Ok(poco);
             }
             catch (Exception ex)
